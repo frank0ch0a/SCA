@@ -1,18 +1,23 @@
 package org.sca.sca.controllers;
 
+import java.util.List;
+
 import org.sca.sca.R;
 import org.sca.sca.model.ApiRegionConnection;
 import org.sca.sca.model.Regions;
 
+
+
 import android.app.Fragment;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class RegionListFragment extends Fragment {
 
@@ -39,8 +44,12 @@ public class RegionListFragment extends Fragment {
 			protected void onPostExecute(ApiRegionConnection apiregionconnection) {
 				
 				ListView listView = (ListView)getView().findViewById(android.R.id.list);
-				ArrayAdapter<Regions> adapter = new ArrayAdapter<Regions>(getActivity(), android.R.layout.simple_list_item_1, apiregionconnection.getRegionsList());
+				RegionListAdapter adapter = new RegionListAdapter(getActivity(), apiregionconnection.getRegionsList());
 				listView.setAdapter(adapter);
+				
+				/*
+				ArrayAdapter<Regions> adapter = new ArrayAdapter<Regions>(getActivity(), android.R.layout.simple_list_item_1, apiregionconnection.getRegionsList());
+				listView.setAdapter(adapter);*/
 				//listView.setOnItemClickListener((OnItemClickListener)getActivity());
 				
 			}
@@ -55,6 +64,43 @@ public class RegionListFragment extends Fragment {
 		 
 	}
 	
+	
+	class RegionListAdapter extends ArrayAdapter<Regions>{
+
+		public RegionListAdapter(Context context, List<Regions> regionList) {
+			super(context,R.layout.regions_layout,regionList);
+			
+		}
+			public View getView(int position, View convertView, ViewGroup parent) {
+				
+				// Usamos el inflater para sacar nuestro layout
+				LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				
+				View regionRow = inflater.inflate(R.layout.regions_layout, parent,false);
+				
+				TextView nameReg =(TextView)regionRow.findViewById(R.id.title_reg_textView);
+		
+				
+				 // Obtenemos nuestro modelo para rellenar con la información de esta fila
+			    Regions currentRegion = getItem(position);
+				
+				
+				
+				nameReg.setText(currentRegion.getName_rege());
+				
+				return regionRow;
+				
+			}
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+
 	
 
 }
