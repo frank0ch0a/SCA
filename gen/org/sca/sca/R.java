@@ -99,6 +99,7 @@ public final class R {
         public static final int fragment_whats_hot=0x7f03000a;
         public static final int fragment_whoweare=0x7f03000b;
         public static final int header_listview=0x7f03000c;
+        public static final int regionslayout=0x7f03000d;
     }
     public static final class menu {
         public static final int main=0x7f090000;
