@@ -2,6 +2,7 @@ package org.sca.sca.controllers;
 
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,6 +47,8 @@ public class EventsFragment extends Fragment{
 	
 	class Task extends AsyncTask<Void, Void, Void>{
 
+		ProgressDialog progressDialog;
+		
 		@Override
 		protected Void doInBackground(Void... params) {
 			loadData();
@@ -54,8 +57,19 @@ public class EventsFragment extends Fragment{
 
 		@Override
 		protected void onPostExecute(Void result) {
+			progressDialog.dismiss();
 			data(jsonO);
 			super.onPostExecute(result);
+		}
+
+		@Override
+		protected void onPreExecute() {
+			progressDialog = new ProgressDialog(getActivity());
+	        progressDialog.show();        
+	        progressDialog.setContentView(R.layout.dialog);
+	        //se ppdr‡ cerrar simplemente pulsando back
+	        progressDialog.setCancelable(true);
+			super.onPreExecute();
 		}
 		
 	}
