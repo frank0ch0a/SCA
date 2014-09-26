@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SCA</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+    <string name="sca_title">Sociedad Colombiana de Arquitectos</string>
+    <string name="sca_descripcion">Lorem ipsum dolor sit amet, duo probo facer conceptam at, deleniti constituto ea mea. Ea saepe nostrud eleifend pri. Sit euismod repudiare efficiantur ut, mollis viderer labitur te nec. Pri ad verterem reprehendunt, cu atqui regione persequeris eos. Assum ancillae percipitur te mel, cum paulo nonumy eruditi ex. Ne congue iudico ius, audire deleniti persequeris eum ne.
+
+No sed sonet maiestatis elaboraret, ad erant perpetua partiendo eum. Cu qui quis diam debitis. An nam malis altera consetetur. Tempor adversarium eu vim, ex facete principes mea, te sit quas dolorum. Esse assentior voluptatum usu ne.</string>
+    
+    
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+         <item ></item>
+        <item >Perfil</item>
+        <item >Quiénes Somos</item>
+        <item >Arquitectos</item>
+        <item >Noticias</item>
+        <item >Photobooth</item>
+        <item >Regional</item>
+        <item >Eventos</item>
+        <item >Concursos</item>
+    </string-array>
+    
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_profile</item>
+        <item>@drawable/ic_who</item>
+        <item>@drawable/ic_architects</item>
+        <item>@drawable/ic_news</item>
+        <item>@drawable/ic_photobooth</item>
+        <item>@drawable/ic_regions</item>
+        <item>@drawable/ic_events</item>
+        <item>@drawable/ic_contests</item>
+    </array>
+    
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+
+</resources>
