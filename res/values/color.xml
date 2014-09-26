@@ -6,5 +6,11 @@
     <color name="list_divider">#272727</color>
     <color name="counter_text_bg">#626262</color>
     <color name="counter_text_color">#c5c4c4</color>
+<<<<<<< HEAD
     <color name="white_color">#fff</color>
+=======
+    <color name="red">#CE3B43</color>
+   	<color name="red_dark">#8C0000</color>
+    <color name="white">#FFFFFF</color>
+>>>>>>> origin/Safe
 </resources>

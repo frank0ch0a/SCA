@@ -171,6 +171,7 @@ public class MainActivity extends Activity {
 	private void displayView(int position) {
 		// update the main content by replacing fragments
 			Fragment fragment = null;
+			
 		switch (position) {
 		case 1:
 			fragment = new ProfileFragment();
@@ -188,7 +189,7 @@ public class MainActivity extends Activity {
 		fragment = new PagesFragment();
 			break;
 		case 6:
-			fragment = new WhatsHotFragment();
+			fragment = new EventsFragment();
 			break;
 
 		default:
