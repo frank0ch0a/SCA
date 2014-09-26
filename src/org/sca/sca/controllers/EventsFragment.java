@@ -47,7 +47,7 @@ public class EventsFragment extends Fragment{
 	
 	class Task extends AsyncTask<Void, Void, Void>{
 
-		ProgressDialog progressDialog;
+	
 		
 		@Override
 		protected Void doInBackground(Void... params) {
@@ -57,18 +57,14 @@ public class EventsFragment extends Fragment{
 
 		@Override
 		protected void onPostExecute(Void result) {
-			progressDialog.dismiss();
+		
 			data(jsonO);
 			super.onPostExecute(result);
 		}
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = new ProgressDialog(getActivity());
-	        progressDialog.show();        
-	        progressDialog.setContentView(R.layout.dialog);
-	        //se ppdr‡ cerrar simplemente pulsando back
-	        progressDialog.setCancelable(true);
+			
 			super.onPreExecute();
 		}
 		
@@ -95,7 +91,7 @@ public class EventsFragment extends Fragment{
 			}
 			 
 			
-			new ImageL("http://sca-events.s3.amazonaws.com"+urlImgBig, imageBig);
+			new ImageL("http://sca-events.s3.amazonaws.com"+urlImgBig, imageBig, getActivity());
 			description.setText(jdescription);
 			
 		} catch (JSONException e) {
