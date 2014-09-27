@@ -64,22 +64,15 @@ public class MainActivity extends Activity {
 		// adding nav drawer items to array
 		// Home
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-		// Find People
+		// Architects
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-		// Photos
+		// News
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-		// Communities, Will add a counter here
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), false, "22"));
-		// Pages
+		// Concursos
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
+		// Events
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-		// What's hot, We  will add a counter here
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), false, "50+"));
 		
-		
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
-		
-	
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons.getResourceId(7, -1)));
 				
 		// Recycle the typed array
 		navMenuIcons.recycle();
@@ -123,6 +116,7 @@ public class MainActivity extends Activity {
 	/**
 	 * Slide menu item click listener
 	 * */
+
 	private class SlideMenuClickListener implements
 			ListView.OnItemClickListener {
 		@Override
@@ -173,24 +167,23 @@ public class MainActivity extends Activity {
 			Fragment fragment = null;
 			
 		switch (position) {
+		case 0:
+			Log.e("Safe", "entro a la portada");
+			fragment = new HomeFragment();
+			break;
 		case 1:
-			fragment = new ProfileFragment();
-			break;
-		case 2:
-			fragment = new WhoWeAreFragment();
-			break;
-		case 3:
 			fragment = new RegionListFragment();
 			break;
+		case 2:
+			//fragment = new NewsFragment();
+			break;
+		case 3:
+			//fragment = new ConcourseFragment();
+			break;
 		case 4:
-		fragment = new CommunityFragment();
-			break;
-		case 5:
-		fragment = new PagesFragment();
-			break;
-		case 6:
 			fragment = new EventsFragment();
 			break;
+	
 
 		default:
 			break;

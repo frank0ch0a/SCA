@@ -8,6 +8,9 @@ import org.sca.sca.model.Regions;
 
 
 
+
+import org.sca.sca.util.ImageL;
+
 import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -16,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -56,6 +60,8 @@ public class RegionListFragment extends Fragment {
 			 
 			 };
 		 
+		
+			 
 		 downloadRegions.execute();
 		 
 		 
@@ -67,35 +73,58 @@ public class RegionListFragment extends Fragment {
 	
 	class RegionListAdapter extends ArrayAdapter<Regions>{
 
+		TextView nameReg;
+		ImageView image;
+		
 		public RegionListAdapter(Context context, List<Regions> regionList) {
 			super(context,R.layout.regions_layout,regionList);
 			
 		}
-			public View getView(int position, View convertView, ViewGroup parent) {
+		public View getView(int position, View regionRow, ViewGroup parent) {
+				
+				final HolderAdapter holder;
 				
 				// Usamos el inflater para sacar nuestro layout
 				LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				
-				View regionRow = inflater.inflate(R.layout.regions_layout, parent,false);
 				
-				TextView nameReg =(TextView)regionRow.findViewById(R.id.title_reg_textView);
-		
+				
+				if(regionRow == null)
+				{
+					holder = new HolderAdapter();
+					regionRow = inflater.inflate(R.layout.regions_layout, null);
+					holder.nameReg =(TextView) regionRow.findViewById(R.id.title_reg_textView);
+					holder.image = (ImageView) regionRow.findViewById(R.id.regionplaceholder);
+					
+					regionRow.setTag(holder);
+				}
+				else
+				{
+					holder = (HolderAdapter) regionRow.getTag();
+				}
+				
 				
 				 // Obtenemos nuestro modelo para rellenar con la información de esta fila
 			    Regions currentRegion = getItem(position);
-				
-				
-				
-				nameReg.setText(currentRegion.getName_rege());
-				
+			   
+			    holder.nameReg.setText(currentRegion.getName_rege());
+			    if(currentRegion.getImage()!= null)
+			    	new ImageL(currentRegion.getImage(), holder.image, getContext());
 				return regionRow;
 				
-			}
-			
-			
-			
 		}
+			
 		
+		
+			
+	}
+	
+	private static class HolderAdapter
+	{
+		public TextView nameReg;
+		public ImageView image;
+
+	}
 		
 		
 		
