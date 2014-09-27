@@ -4,11 +4,7 @@
     android:layout_height="match_parent" >
 
     <ImageView
-<<<<<<< HEAD
-        android:id="@+id/title_reg_imageView"
-=======
         android:id="@+id/imageBigEvents"
->>>>>>> origin/Safe
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
