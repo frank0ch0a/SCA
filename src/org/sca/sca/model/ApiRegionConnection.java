@@ -51,9 +51,9 @@ public class ApiRegionConnection {
 			
 			URLConnection conn = new URL(apiURL+tp+apiKey).openConnection();
 		
-		 BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-		        StringBuilder response = new StringBuilder();
-		        String line = null;
+			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		    StringBuilder response = new StringBuilder();
+		    String line = null;
 	        
 	        while ((line = reader.readLine()) != null) {
 	            response.append(line);
@@ -89,7 +89,7 @@ public class ApiRegionConnection {
 	        	String lastname_person_reg = null;
 	        	String hasimg_reg = null;
 	        	String extimg_reg = null;
-	        	
+	        	String image = null;
 	        	List<String> images = new LinkedList<String>();
 	        	
 	        	JSONObject jsonRegions= regions.getJSONObject(i);
@@ -110,15 +110,16 @@ public class ApiRegionConnection {
 	        	extimg_reg = jsonRegions.getString("extimg_reg");
 	        	
 	        	if (jsonRegions.has("img")) {
-	        		
-	        		
-	        		
 	        		images.add(jsonRegions.getString("img"));
-					
+	        		JSONObject jsonImage= jsonRegions.getJSONObject("img");
+	        		if(jsonImage.has("t03"))
+	        		{
+	        			image = "http://sca-events.s3.amazonaws.com"+jsonImage.getString("t03");
+	        		}
 				}
 	        			
 	           
-	        	apiConnect.mRegions.add(new Regions(id_reg, name_reg, abr_reg, slug_reg, dir_reg, phone_reg, city_reg, country_reg, district_reg, lat_reg, lon_reg, id_person_reg, lastname_person_reg, hasimg_reg, extimg_reg, images));
+	        	apiConnect.mRegions.add(new Regions(id_reg, name_reg, abr_reg, slug_reg, dir_reg, phone_reg, city_reg, country_reg, district_reg, lat_reg, lon_reg, id_person_reg, lastname_person_reg, hasimg_reg, extimg_reg, images, image));
 	        
 			}
 	        

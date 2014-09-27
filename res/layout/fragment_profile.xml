@@ -6,11 +6,7 @@
     android:orientation="vertical" >
 
     <ImageView
-<<<<<<< HEAD
-        android:id="@+id/title_reg_imageView"
-=======
         android:id="@+id/imageBigEvents"
->>>>>>> origin/Safe
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -22,11 +18,9 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:layout_below="@+id/title_reg_imageView"
-=======
+
         android:layout_below="@+id/imageBigEvents"
->>>>>>> origin/Safe
+
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:src="@drawable/bg_profile2" />

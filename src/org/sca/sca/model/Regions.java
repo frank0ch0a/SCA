@@ -20,6 +20,7 @@ public class Regions {
 	private String mName_person_reg = null;
 	private String mHasimg_reg =null;
 	private String mExtimg_reg = null;
+	private String image = null;
 	List<String> mImages = new LinkedList<String>();
 	
 	
@@ -27,7 +28,7 @@ public class Regions {
 			String slug_reg, String dir_reg, String phone_reg, String city_reg,
 			String country_region, String mdistrict_region, String lat_reg,
 			String long_reg, String id_person_reg, String name_person_reg,
-			String hasimg_reg, String extimg_reg, List<String> images) {
+			String hasimg_reg, String extimg_reg, List<String> images, String img) {
 		super();
 		mId_reg = id_reg;
 		mName_rege = name_rege;
@@ -45,6 +46,7 @@ public class Regions {
 		mHasimg_reg = hasimg_reg;
 		mExtimg_reg = extimg_reg;
 		mImages = images;
+		image = img;
 	}
 
 	public String getId_reg() {
@@ -171,6 +173,14 @@ public class Regions {
 	@Override
 	public String toString() {
 		return getName_rege();
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	
