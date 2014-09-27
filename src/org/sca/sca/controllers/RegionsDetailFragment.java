@@ -21,6 +21,7 @@ public class RegionsDetailFragment extends Fragment {
 		 
 		 
 		 
+		 
 		
 		return root;
 		
