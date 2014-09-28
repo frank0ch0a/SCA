@@ -5,6 +5,10 @@ import java.util.ArrayList;
 
 import org.sca.sca.R;
 import org.sca.sca.adapters.NavDrawerListAdapter;
+import org.sca.sca.fragments.EventDetailFragment;
+import org.sca.sca.fragments.EventsFragment;
+import org.sca.sca.fragments.HomeFragment;
+import org.sca.sca.fragments.RegionListFragment;
 import org.sca.sca.model.NavDrawerItem;
 
 import android.annotation.SuppressLint;
@@ -178,7 +182,7 @@ public class MainActivity extends Activity {
 			//fragment = new NewsFragment();
 			break;
 		case 3:
-			//fragment = new ConcourseFragment();
+			fragment = new EventDetailFragment();
 			break;
 		case 4:
 			fragment = new EventsFragment();
@@ -190,6 +194,7 @@ public class MainActivity extends Activity {
 		}
 
 		if (fragment != null) {
+			
 			FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager.beginTransaction()
 					.replace(R.id.frame_container, fragment).commit();

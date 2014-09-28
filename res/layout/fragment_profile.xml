@@ -34,7 +34,7 @@
         android:src="@drawable/logo_sca_" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/event_day2"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/btnCronograma"
