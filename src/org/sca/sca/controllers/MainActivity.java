@@ -8,6 +8,7 @@ import org.sca.sca.adapters.NavDrawerListAdapter;
 import org.sca.sca.fragments.EventDetailFragment;
 import org.sca.sca.fragments.EventsFragment;
 import org.sca.sca.fragments.HomeFragment;
+import org.sca.sca.fragments.NewsFragment;
 import org.sca.sca.fragments.RegionListFragment;
 import org.sca.sca.model.NavDrawerItem;
 
@@ -179,7 +180,7 @@ public class MainActivity extends Activity {
 			fragment = new RegionListFragment();
 			break;
 		case 2:
-			//fragment = new NewsFragment();
+			fragment = new NewsFragment();
 			break;
 		case 3:
 			fragment = new EventDetailFragment();
@@ -204,7 +205,7 @@ public class MainActivity extends Activity {
 			mDrawerList.setSelection(position);
 			setTitle(navMenuTitles[position]);
 			mDrawerLayout.closeDrawer(mDrawerList);
-		} else {
+		} else { 
 			// error in creating fragment
 			Log.e("MainActivity", "Error in creating fragment");
 		}

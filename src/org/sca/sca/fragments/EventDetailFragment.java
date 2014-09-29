@@ -27,8 +27,8 @@ public EventDetailFragment(){}
  
         View rootView = inflater.inflate(R.layout.fragment_detail_events, container, false);
         
-        mImageEventBG =(ImageView)rootView.findViewById(R.id.imageView1);
-        mEventList =(ListView)rootView.findViewById(R.id.listView1);
+        mImageEventBG =(ImageView)rootView.findViewById(R.id.imageViewNews);
+        mEventList =(ListView)rootView.findViewById(R.id.listViewNews);
         mEventDay1Btn =(Button)rootView.findViewById(R.id.event_day1);
         mEventDay2Btn=(Button)rootView.findViewById(R.id.event_day2);
          

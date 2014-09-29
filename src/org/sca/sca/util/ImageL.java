@@ -29,7 +29,7 @@ public class ImageL {
 	public ImageL(String url, ImageView view, Context context)
 	{
 		this.image = view;
-		this.url = url;
+		this.url = "http://sca-events.s3.amazonaws.com"+url;
 		this.context= context;
 		
 		String []names= url.split("/");
@@ -53,12 +53,23 @@ public class ImageL {
 	    try{
 	        imageUrl = new URL(imageHttpAddress);
 	        HttpURLConnection conn = (HttpURLConnection) imageUrl.openConnection();
+	        conn.setDoInput(true);
 	        conn.connect();
-	        imagen = BitmapFactory.decodeStream(conn.getInputStream());
 	        
-	        FileOutputStream file = new FileOutputStream(imageFile);
-	        imagen.compress(CompressFormat.PNG, 70, file);
-	        file.close();
+	        InputStream input = conn.getInputStream();
+	        if(input != null) Log.e("SAFE tAG", "Input - Diferente de null");
+	        imagen = BitmapFactory.decodeStream(input);
+	        
+	        if(imagen != null) Log.e("SAFE tAG", "Imagen Diferente de null");
+	        
+	        if(imagen!=null){
+	        	FileOutputStream file = new FileOutputStream(imageFile);
+		        imagen.compress(CompressFormat.PNG, 70, file);
+		        file.close();
+	        }
+	        
+	        
+	        
 	    }catch(IOException ex){
 	        ex.printStackTrace();
 	    }

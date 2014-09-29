@@ -17,11 +17,6 @@ public class RegionsDetailFragment extends Fragment {
 		 super.onCreateView(inflater, container, savedInstanceState);
 		 
 		 View root = inflater.inflate(R.layout.region_detail,container,false);
-		 
-		 
-		 
-		 
-		 
 		
 		return root;
 		

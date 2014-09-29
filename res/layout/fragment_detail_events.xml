@@ -4,7 +4,7 @@
     android:layout_height="match_parent" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageViewNews"
         android:layout_width="wrap_content"
         android:layout_height="158dp"
         android:layout_alignParentLeft="true"
@@ -18,7 +18,7 @@
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageView1" >
+        android:layout_below="@+id/imageViewNews" >
 
         <Button
             android:id="@+id/event_day1"
@@ -36,7 +36,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/listViewNews"
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:layout_alignParentBottom="true"
