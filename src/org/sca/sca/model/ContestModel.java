@@ -1,7 +1,13 @@
 package org.sca.sca.model;
 
-public class ContestModel {
+import java.io.Serializable;
 
+public class ContestModel implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8951303072336630835L;
 	private String mIdContext = null;
 	private String mName_contest = null;
 	private String mDate_i_contest = null;

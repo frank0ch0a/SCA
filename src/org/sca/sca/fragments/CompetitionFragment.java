@@ -14,6 +14,7 @@ import org.sca.sca.util.Network;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -45,7 +46,13 @@ public class CompetitionFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long id) {
-				// TODO Llevar a donde debe llevar con la info requerida
+				FragmentManager fragmentManager = getFragmentManager();
+				fragmentManager
+						.beginTransaction()
+						.replace(
+								R.id.frame_container,
+								new CompetitionDetailFragment(contests
+										.get(position))).commit();
 			}
 		});
 		contests = new ArrayList<ContestModel>();

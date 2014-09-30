@@ -11,6 +11,7 @@ import org.sca.sca.model.ActivitiesModel;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,10 +59,25 @@ public class EventDetailFragment extends Fragment {
 		mEventList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				// TODO Se realiza la accion cuando se oprime un objeto de la
-				// lista
+			public void onItemClick(AdapterView<?> arg0, View arg1,
+					int position, long arg3) {
+				if (mEventDay1Btn.isChecked()) {
+					FragmentManager fragmentManager = getFragmentManager();
+					fragmentManager
+							.beginTransaction()
+							.replace(
+									R.id.frame_container,
+									new EventDetailDetailFragment(day1
+											.get(position))).commit();
+				} else {
+					FragmentManager fragmentManager = getFragmentManager();
+					fragmentManager
+							.beginTransaction()
+							.replace(
+									R.id.frame_container,
+									new EventDetailDetailFragment(day2
+											.get(position))).commit();
+				}
 			}
 
 		});

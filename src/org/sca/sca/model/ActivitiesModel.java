@@ -1,9 +1,15 @@
 package org.sca.sca.model;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ActivitiesModel {
+public class ActivitiesModel implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8600066343877655717L;
 
 	public static final String IMAGE_URL = "http://sca-events.s3.amazonaws.com";
 
