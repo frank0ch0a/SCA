@@ -1,10 +1,10 @@
 package org.sca.sca.controllers;
 
-
 import java.util.ArrayList;
 
 import org.sca.sca.R;
 import org.sca.sca.adapters.NavDrawerListAdapter;
+import org.sca.sca.fragments.CompetitionFragment;
 import org.sca.sca.fragments.EventDetailFragment;
 import org.sca.sca.fragments.EventsFragment;
 import org.sca.sca.fragments.HomeFragment;
@@ -68,17 +68,21 @@ public class MainActivity extends Activity {
 
 		// adding nav drawer items to array
 		// Home
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
+				.getResourceId(0, -1)));
 		// Architects
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
+				.getResourceId(1, -1)));
 		// News
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
+				.getResourceId(2, -1)));
 		// Concursos
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
+				.getResourceId(3, -1)));
 		// Events
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-		
-				
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
+				.getResourceId(4, -1)));
+
 		// Recycle the typed array
 		navMenuIcons.recycle();
 
@@ -94,9 +98,11 @@ public class MainActivity extends Activity {
 		getActionBar().setHomeButtonEnabled(true);
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, //nav menu toggle icon
-				R.string.app_name, // nav drawer open - description for accessibility
-				R.string.app_name // nav drawer close - description for accessibility
+				R.drawable.ic_drawer, // nav menu toggle icon
+				R.string.app_name, // nav drawer open - description for
+									// accessibility
+				R.string.app_name // nav drawer close - description for
+									// accessibility
 		) {
 			public void onDrawerClosed(View view) {
 				getActionBar().setTitle(mTitle);
@@ -169,8 +175,8 @@ public class MainActivity extends Activity {
 	 * */
 	private void displayView(int position) {
 		// update the main content by replacing fragments
-			Fragment fragment = null;
-			
+		Fragment fragment = null;
+
 		switch (position) {
 		case 0:
 			Log.e("Safe", "entro a la portada");
@@ -183,19 +189,18 @@ public class MainActivity extends Activity {
 			fragment = new NewsFragment();
 			break;
 		case 3:
-			fragment = new EventDetailFragment();
+			fragment = new CompetitionFragment();
 			break;
 		case 4:
 			fragment = new EventsFragment();
 			break;
-	
 
 		default:
 			break;
 		}
 
 		if (fragment != null) {
-			
+
 			FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager.beginTransaction()
 					.replace(R.id.frame_container, fragment).commit();
@@ -205,7 +210,7 @@ public class MainActivity extends Activity {
 			mDrawerList.setSelection(position);
 			setTitle(navMenuTitles[position]);
 			mDrawerLayout.closeDrawer(mDrawerList);
-		} else { 
+		} else {
 			// error in creating fragment
 			Log.e("MainActivity", "Error in creating fragment");
 		}

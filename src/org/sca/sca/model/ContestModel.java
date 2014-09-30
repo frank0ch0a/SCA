@@ -1,102 +1,135 @@
 package org.sca.sca.model;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class ContestModel {
-	
+
 	private String mIdContext = null;
 	private String mName_contest = null;
 	private String mDate_i_contest = null;
-	private String mDate_e_contest= null;
+	private String mDate_e_contest = null;
 	private String mDate_pi_contest = null;
 	private String mDate_pf_contest = null;
 	private String mUrl_contest = null;
 	private String mDesc_contest = null;
-	List<String> mImages = new LinkedList<String>();
 	private String mDate_if_contest = null;
-	private String mDate_ef_contest =null;
-	public ContestModel(String idContext, String name_contest,
-			String date_i_contest, String date_e_contest,
-			String date_pi_contest, String date_pf_contest, String url_contest,
-			String desc_contest, List<String> images, String date_if_contest,
-			String date_ef_contest) {
-		super();
-		mIdContext = idContext;
-		mName_contest = name_contest;
-		mDate_i_contest = date_i_contest;
-		mDate_e_contest = date_e_contest;
-		mDate_pi_contest = date_pi_contest;
-		mDate_pf_contest = date_pf_contest;
-		mUrl_contest = url_contest;
-		mDesc_contest = desc_contest;
-		mImages = images;
-		mDate_if_contest = date_if_contest;
-		mDate_ef_contest = date_ef_contest;
+	private String mDate_ef_contest = null;
+	private String mBig;
+	private String mT01;
+	private String mT02;
+	private String mT03;
+
+	public ContestModel() {
 	}
-	public String getIdContext() {
+
+	public String getmIdContext() {
 		return mIdContext;
 	}
-	public void setIdContext(String idContext) {
-		mIdContext = idContext;
+
+	public void setmIdContext(String mIdContext) {
+		this.mIdContext = mIdContext;
 	}
-	public String getName_contest() {
+
+	public String getmName_contest() {
 		return mName_contest;
 	}
-	public void setName_contest(String name_contest) {
-		mName_contest = name_contest;
+
+	public void setmName_contest(String mName_contest) {
+		this.mName_contest = mName_contest;
 	}
-	public String getDate_i_contest() {
+
+	public String getmDate_i_contest() {
 		return mDate_i_contest;
 	}
-	public void setDate_i_contest(String date_i_contest) {
-		mDate_i_contest = date_i_contest;
+
+	public void setmDate_i_contest(String mDate_i_contest) {
+		this.mDate_i_contest = mDate_i_contest;
 	}
-	public String getDate_e_contest() {
+
+	public String getmDate_e_contest() {
 		return mDate_e_contest;
 	}
-	public void setDate_e_contest(String date_e_contest) {
-		mDate_e_contest = date_e_contest;
+
+	public void setmDate_e_contest(String mDate_e_contest) {
+		this.mDate_e_contest = mDate_e_contest;
 	}
-	public String getDate_pi_contest() {
+
+	public String getmDate_pi_contest() {
 		return mDate_pi_contest;
 	}
-	public void setDate_pi_contest(String date_pi_contest) {
-		mDate_pi_contest = date_pi_contest;
+
+	public void setmDate_pi_contest(String mDate_pi_contest) {
+		this.mDate_pi_contest = mDate_pi_contest;
 	}
-	public String getDate_pf_contest() {
+
+	public String getmDate_pf_contest() {
 		return mDate_pf_contest;
 	}
-	public void setDate_pf_contest(String date_pf_contest) {
-		mDate_pf_contest = date_pf_contest;
+
+	public void setmDate_pf_contest(String mDate_pf_contest) {
+		this.mDate_pf_contest = mDate_pf_contest;
 	}
-	public String getUrl_contest() {
+
+	public String getmUrl_contest() {
 		return mUrl_contest;
 	}
-	public void setUrl_contest(String url_contest) {
-		mUrl_contest = url_contest;
+
+	public void setmUrl_contest(String mUrl_contest) {
+		this.mUrl_contest = mUrl_contest;
 	}
-	public String getDesc_contest() {
+
+	public String getmDesc_contest() {
 		return mDesc_contest;
 	}
-	public void setDesc_contest(String desc_contest) {
-		mDesc_contest = desc_contest;
+
+	public void setmDesc_contest(String mDesc_contest) {
+		this.mDesc_contest = mDesc_contest;
 	}
-	public String getDate_if_contest() {
+
+	public String getmDate_if_contest() {
 		return mDate_if_contest;
 	}
-	public void setDate_if_contest(String date_if_contest) {
-		mDate_if_contest = date_if_contest;
+
+	public void setmDate_if_contest(String mDate_if_contest) {
+		this.mDate_if_contest = mDate_if_contest;
 	}
-	public String getDate_ef_contest() {
+
+	public String getmDate_ef_contest() {
 		return mDate_ef_contest;
 	}
-	public void setDate_ef_contest(String date_ef_contest) {
-		mDate_ef_contest = date_ef_contest;
+
+	public void setmDate_ef_contest(String mDate_ef_contest) {
+		this.mDate_ef_contest = mDate_ef_contest;
 	}
-	
-	
-	
-	
+
+	public String getmBig() {
+		return ActivitiesModel.IMAGE_URL + mBig;
+	}
+
+	public void setmBig(String mBig) {
+		this.mBig = mBig;
+	}
+
+	public String getmT01() {
+		return ActivitiesModel.IMAGE_URL + mT01;
+	}
+
+	public void setmT01(String mT01) {
+		this.mT01 = mT01;
+	}
+
+	public String getmT02() {
+		return ActivitiesModel.IMAGE_URL + mT02;
+	}
+
+	public void setmT02(String mT02) {
+		this.mT02 = mT02;
+	}
+
+	public String getmT03() {
+		return ActivitiesModel.IMAGE_URL + mT03;
+	}
+
+	public void setmT03(String mT03) {
+		this.mT03 = mT03;
+	}
 
 }
