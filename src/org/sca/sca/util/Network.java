@@ -22,25 +22,25 @@ import org.json.JSONObject;
 public class Network {
 
 	HttpClient client;
-	String url; 
-	
-	public Network(){
+	String url;
+
+	public Network() {
 		client = new DefaultHttpClient();
 	}
-	
-	public JSONObject getDataJSONObject(String url){
+
+	public JSONObject getDataJSONObject(String url) {
+		client = new DefaultHttpClient();
 		HttpGet get = new HttpGet(url);
-		
+
 		try {
 			HttpResponse response = client.execute(get);
-			HttpEntity entity= response.getEntity();
-			
-			if(response.getStatusLine().getStatusCode()==200){
-				JSONObject json= new JSONObject(EntityUtils.toString(entity));
-		
+			HttpEntity entity = response.getEntity();
+
+			if (response.getStatusLine().getStatusCode() == 200) {
+				JSONObject json = new JSONObject(EntityUtils.toString(entity));
 				return json;
 			}
-			
+
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,7 +54,7 @@ public class Network {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 }
