@@ -1,10 +1,15 @@
 package org.sca.sca.controllers;
 
-
 import java.util.ArrayList;
 
 import org.sca.sca.R;
 import org.sca.sca.adapters.NavDrawerListAdapter;
+import org.sca.sca.fragments.CompetitionFragment;
+import org.sca.sca.fragments.EventDetailFragment;
+import org.sca.sca.fragments.EventsFragment;
+import org.sca.sca.fragments.HomeFragment;
+import org.sca.sca.fragments.NewsFragment;
+import org.sca.sca.fragments.RegionListFragment;
 import org.sca.sca.model.NavDrawerItem;
 
 import android.annotation.SuppressLint;
@@ -63,24 +68,21 @@ public class MainActivity extends Activity {
 
 		// adding nav drawer items to array
 		// Home
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-		// Find People
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-		// Photos
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-		// Communities, Will add a counter here
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), false, "22"));
-		// Pages
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-		// What's hot, We  will add a counter here
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), false, "50+"));
-		
-		
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
-		
-	
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons.getResourceId(7, -1)));
-				
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
+				.getResourceId(0, -1)));
+		// Architects
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
+				.getResourceId(1, -1)));
+		// News
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
+				.getResourceId(2, -1)));
+		// Concursos
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
+				.getResourceId(3, -1)));
+		// Events
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
+				.getResourceId(4, -1)));
+
 		// Recycle the typed array
 		navMenuIcons.recycle();
 
@@ -96,9 +98,11 @@ public class MainActivity extends Activity {
 		getActionBar().setHomeButtonEnabled(true);
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-				R.drawable.ic_drawer, //nav menu toggle icon
-				R.string.app_name, // nav drawer open - description for accessibility
-				R.string.app_name // nav drawer close - description for accessibility
+				R.drawable.ic_drawer, // nav menu toggle icon
+				R.string.app_name, // nav drawer open - description for
+									// accessibility
+				R.string.app_name // nav drawer close - description for
+									// accessibility
 		) {
 			public void onDrawerClosed(View view) {
 				getActionBar().setTitle(mTitle);
@@ -123,6 +127,7 @@ public class MainActivity extends Activity {
 	/**
 	 * Slide menu item click listener
 	 * */
+
 	private class SlideMenuClickListener implements
 			ListView.OnItemClickListener {
 		@Override
@@ -170,25 +175,24 @@ public class MainActivity extends Activity {
 	 * */
 	private void displayView(int position) {
 		// update the main content by replacing fragments
-			Fragment fragment = null;
+		Fragment fragment = null;
+
 		switch (position) {
+		case 0:
+			Log.e("Safe", "entro a la portada");
+			fragment = new HomeFragment();
+			break;
 		case 1:
-			fragment = new ProfileFragment();
-			break;
-		case 2:
-			fragment = new WhoWeAreFragment();
-			break;
-		case 3:
 			fragment = new RegionListFragment();
 			break;
+		case 2:
+			fragment = new NewsFragment();
+			break;
+		case 3:
+			fragment = new CompetitionFragment();
+			break;
 		case 4:
-		fragment = new CommunityFragment();
-			break;
-		case 5:
-		fragment = new PagesFragment();
-			break;
-		case 6:
-			fragment = new WhatsHotFragment();
+			fragment = new EventsFragment();
 			break;
 
 		default:
@@ -196,6 +200,7 @@ public class MainActivity extends Activity {
 		}
 
 		if (fragment != null) {
+
 			FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager.beginTransaction()
 					.replace(R.id.frame_container, fragment).commit();

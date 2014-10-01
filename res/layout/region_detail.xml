@@ -4,7 +4,7 @@
     android:layout_height="match_parent" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageViewNews"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_alignParentLeft="true"
@@ -14,12 +14,11 @@
         android:src="@drawable/bg_login" />
 
     <ListView
-        android:id="@+id/regions_list_view"
+        android:id="@+id/regions_list_viewArchitects"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imageView1" >
-
+        android:layout_below="@+id/imageViewNews" >
     </ListView>
 
     <TextView
@@ -29,7 +28,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="TextView" />
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/president_region_textView"
@@ -38,7 +37,7 @@
         android:layout_alignRight="@+id/city_textView"
         android:layout_below="@+id/city_textView"
         android:layout_marginTop="20dp"
-        android:text="TextView" />
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/address_textView"
@@ -47,6 +46,6 @@
         android:layout_alignLeft="@+id/president_region_textView"
         android:layout_below="@+id/president_region_textView"
         android:layout_marginTop="14dp"
-        android:text="TextView" />
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
