@@ -5,21 +5,23 @@ import java.util.ArrayList;
 import org.sca.sca.R;
 import org.sca.sca.adapters.NavDrawerListAdapter;
 import org.sca.sca.fragments.CompetitionFragment;
-import org.sca.sca.fragments.EventDetailFragment;
 import org.sca.sca.fragments.EventsFragment;
 import org.sca.sca.fragments.HomeFragment;
 import org.sca.sca.fragments.NewsFragment;
 import org.sca.sca.fragments.RegionListFragment;
+import org.sca.sca.fragments.WhoWeAreFragment;
 import org.sca.sca.model.NavDrawerItem;
+
+import com.google.android.youtube.player.YouTubeBaseActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
@@ -29,7 +31,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 @SuppressLint("NewApi")
-public class MainActivity extends Activity {
+public class MainActivity extends YouTubeBaseActivity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -81,6 +83,10 @@ public class MainActivity extends Activity {
 				.getResourceId(3, -1)));
 		// Events
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
+				.getResourceId(4, -1)));
+
+		// WhoWeAre
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
 				.getResourceId(4, -1)));
 
 		// Recycle the typed array
@@ -194,6 +200,9 @@ public class MainActivity extends Activity {
 		case 4:
 			fragment = new EventsFragment();
 			break;
+
+		case 5:
+			fragment = new WhoWeAreFragment();
 
 		default:
 			break;
