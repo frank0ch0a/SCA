@@ -27,6 +27,7 @@ public class StarViewActivity extends Activity {
 			public void onClick(View v) {
 				Intent i = new Intent(getApplicationContext(), LoginActivity.class);
 				startActivity(i);
+				finish();
 			}
 		});
 		
@@ -36,6 +37,7 @@ public class StarViewActivity extends Activity {
 			public void onClick(View v) {
 				Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
 				startActivity(i);
+				finish();
 			}
 		});
 		

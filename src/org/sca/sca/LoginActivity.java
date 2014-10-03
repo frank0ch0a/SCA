@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import org.sca.sca.model.ApiLoginConnection;
+import org.sca.sca.util.Token;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -109,6 +110,17 @@ public class LoginActivity extends Activity {
 			Log.e("SAFE Asyn", etCorreo.getText().toString() +" Pass: "+ convertSha1(etPasswd.getText().toString()));
 			ApiLoginConnection.getInstance("tp=10101&", etCorreo.getText().toString(), convertSha1(etPasswd.getText().toString()), getApplicationContext());
 			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			if(Token.getTokenInitial(getApplicationContext()).getToken_a()!="" && Token.getTokenInitial(getApplicationContext()).getToken_b() !="" && Token.getTokenInitial(getApplicationContext()).getSession() != "")
+			{
+				Intent i = new Intent(getApplicationContext(), MainActivity.class);
+				startActivity(i);
+				finish();
+			}
+			super.onPostExecute(result);
 		}
 		
 	}

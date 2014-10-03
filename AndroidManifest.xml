@@ -3,7 +3,7 @@
     package="org.sca.sca"
     android:versionCode="1"
     android:versionName="1.0" >
-<<<<<<< HEAD
+
      <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
@@ -14,17 +14,7 @@
 <uses-permission android:name="android.permission.CAMERA"/>
 <uses-feature android:name="android.hardware.camera"/>
    
-=======
 
-    <uses-permission android:name="android.permission.INTERNET" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="17" />
->>>>>>> safe1
 
     <application
         android:allowBackup="true"
@@ -59,8 +49,7 @@
             android:label="@string/title_activity_login"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
-<<<<<<< HEAD
-        
+
          <activity android:name="org.sca.sca.controllers.CameraActivity"
              android:label="@string/app_name">
             
@@ -73,12 +62,7 @@
             
         </activity>
         
-         
-        
-        
-            
-=======
->>>>>>> safe1
+
     </application>
 
 </manifest>
