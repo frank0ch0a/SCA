@@ -8,6 +8,7 @@ import org.sca.sca.fragments.CompetitionFragment;
 import org.sca.sca.fragments.EventsFragment;
 import org.sca.sca.fragments.HomeFragment;
 import org.sca.sca.fragments.NewsFragment;
+import org.sca.sca.fragments.PhotoBoothFragment;
 import org.sca.sca.fragments.RegionListFragment;
 import org.sca.sca.fragments.WhoWeAreFragment;
 import org.sca.sca.model.NavDrawerItem;
@@ -78,15 +79,17 @@ public class MainActivity extends YouTubeBaseActivity {
 		// News
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
 				.getResourceId(2, -1)));
-		// Concursos
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
+				.getResourceId(2, -1)));
+		// Concursos
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
 				.getResourceId(3, -1)));
 		// Events
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
 				.getResourceId(4, -1)));
 
 		// WhoWeAre
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons
 				.getResourceId(4, -1)));
 
 		// Recycle the typed array
@@ -195,13 +198,16 @@ public class MainActivity extends YouTubeBaseActivity {
 			fragment = new NewsFragment();
 			break;
 		case 3:
-			fragment = new CompetitionFragment();
+			fragment = new PhotoBoothFragment();
 			break;
 		case 4:
+			fragment = new CompetitionFragment();
+			break;
+		case 5:
 			fragment = new EventsFragment();
 			break;
 
-		case 5:
+		case 6:
 			fragment = new WhoWeAreFragment();
 
 		default:

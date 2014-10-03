@@ -9,12 +9,13 @@
     <string name="sca_descripcion">Lorem ipsum dolor sit amet, duo probo facer conceptam at, deleniti constituto ea mea. Ea saepe nostrud eleifend pri. Sit euismod repudiare efficiantur ut, mollis viderer labitur te nec. Pri ad verterem reprehendunt, cu atqui regione persequeris eos. Assum ancillae percipitur te mel, cum paulo nonumy eruditi ex. Ne congue iudico ius, audire deleniti persequeris eum ne.
 
 No sed sonet maiestatis elaboraret, ad erant perpetua partiendo eum. Cu qui quis diam debitis. An nam malis altera consetetur. Tempor adversarium eu vim, ex facete principes mea, te sit quas dolorum. Esse assentior voluptatum usu ne.</string>
-
+	<string name="take">Tomar Foto</string>
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
         <item>Portada</item>
         <item>Arquitectos</item>
         <item>Noticias</item>
+        <item>PhotoBooth</item>
         <item>Concursos</item>
         <item>Eventos</item>
         <item>Quienes Somos</item>
@@ -26,9 +27,9 @@ No sed sonet maiestatis elaboraret, ad erant perpetua partiendo eum. Cu qui quis
         <item>@drawable/ic_profile</item>
         <item>@drawable/ic_architects</item>
         <item>@drawable/ic_news</item>
+        <item>@drawable/ic_photobooth</item>
         <item>@drawable/ic_contests</item>
         <item>@drawable/ic_events</item>
-        <item>@drawable/ic_photobooth</item>
         <item>@drawable/ic_regions</item>
     </array>
 
