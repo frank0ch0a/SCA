@@ -1,18 +1,24 @@
 package org.sca.sca.fragments;
 
+import java.util.List;
+
 import org.sca.sca.R;
 import org.sca.sca.adapters.RegionArchitectAdapter;
+import org.sca.sca.fragments.RegionListFragment.RegionListAdapter;
 import org.sca.sca.model.RegionModel;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,9 +38,15 @@ public class RegionsDetailFragment extends Fragment {
 		super.onCreateView(inflater, container, savedInstanceState);
 
 		View root = inflater.inflate(R.layout.region_detail, container, false);
+		
+		
 
 		((TextView) root.findViewById(R.id.city_textView)).setText(region
 				.getName_reg());
+		
+		Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Dosis-Regular.otf");
+	((TextView) root.findViewById(R.id.city_textView)).setTypeface(tf);
+		
 		if (region.getName_person_reg() != null
 				&& !region.getName_person_reg().equalsIgnoreCase("null")
 				&& region.getLastname_person_reg() != null
@@ -74,4 +86,7 @@ public class RegionsDetailFragment extends Fragment {
 		super.onAttach(activity);
 		mActivity = activity;
 	}
+	
+	
+	
 }

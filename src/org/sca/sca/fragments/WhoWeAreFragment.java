@@ -10,6 +10,7 @@ import org.sca.sca.util.Network;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -89,8 +90,12 @@ public class WhoWeAreFragment extends Fragment implements
 		System.out.println(obj);
 		try {
 			JSONObject config = obj.getJSONObject("config");
+			Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Dosis-Regular.otf");
+			Typeface tfLight = Typeface.createFromAsset(getActivity().getAssets(), "Dosis-Light.otf");
 			title.setText(config.getString("S_NOMBCORTO"));
+			title.setTypeface(tf);
 			description.setText(config.getString("APP_ABOUT"));
+			description.setTypeface(tfLight);
 			String video = config.getString("APP_VID");
 			String[] parts = video.split("/");
 			String endpart = parts[parts.length - 1];

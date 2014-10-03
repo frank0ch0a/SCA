@@ -9,6 +9,7 @@ import com.squareup.picasso.Picasso;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -35,16 +36,24 @@ public class EventDetailDetailFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_event_detail_detail,
 				container, false);
 
-		ImageView m = (ImageView) rootView.findViewById(R.id.imageViewContest);
+		ImageView m = (ImageView) rootView.findViewById(R.id.bg_contest);
 		Picasso.with(mActivity).load(model.getmT03()).into(m);
+		Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Dosis-Regular.otf");
+		Typeface tfLight = Typeface.createFromAsset(getActivity().getAssets(), "Dosis-Regular.otf");
 
 		((TextView) rootView.findViewById(R.id.textViewTitleContest))
 				.setText(model.getmTitle_activity());
+		((TextView) rootView.findViewById(R.id.textViewTitleContest)).setTypeface(tf);
+		
+		
 		((TextView) rootView.findViewById(R.id.textViewDescripcion))
 				.setText("Descripción: " + model.getmDesc_activity());
+		((TextView) rootView.findViewById(R.id.textViewDescripcion)).setTypeface(tfLight);
+		
 		((TextView) rootView.findViewById(R.id.textViewFecha))
 				.setText("Fecha: " + model.getmDate_n_activity());
 
+		((TextView) rootView.findViewById(R.id.textViewFecha)).setTypeface(tfLight);
 		return rootView;
 	}
 

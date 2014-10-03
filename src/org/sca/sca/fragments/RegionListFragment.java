@@ -21,6 +21,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -136,6 +137,8 @@ public class RegionListFragment extends Fragment {
 			Regions currentRegion = getItem(position);
 
 			holder.nameReg.setText(currentRegion.getName_rege());
+			Typeface tf =  Typeface.createFromAsset(getContext().getAssets(), "Dosis-Regular.otf");
+			holder.nameReg.setTypeface(tf);
 			if (currentRegion.getImage() != null)
 				Picasso.with(mActivity).load(currentRegion.getImage())
 						.into(holder.image);

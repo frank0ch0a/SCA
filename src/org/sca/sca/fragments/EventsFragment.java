@@ -11,6 +11,7 @@ import org.sca.sca.util.Network;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -110,6 +111,8 @@ public class EventsFragment extends Fragment {
 			}
 			new ImageL("http://sca-events.s3.amazonaws.com" + urlImgBig,
 					imageBig, getActivity());
+			Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Dosis-Regular.otf");
+			description.setTypeface(tf);
 			description.setText(jdescription);
 		} catch (JSONException e) {
 			e.printStackTrace();

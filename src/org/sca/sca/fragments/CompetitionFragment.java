@@ -40,6 +40,8 @@ public class CompetitionFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_competition,
 				container, false);
+		
+		
 		mListView = (ListView) rootView.findViewById(R.id.listView);
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 

@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,13 +44,27 @@ public class ArchitectDetailFragment extends Fragment {
 		View root = inflater.inflate(R.layout.fragment_architect_detail,
 				container, false);
 
+		Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Dosis-Regular.otf");
+		
+		Typeface tfLight = Typeface.createFromAsset(getActivity().getAssets(), "Dosis-Light.otf");
+		
+		((TextView) root.findViewById(R.id.textViewName)).setTypeface(tf);
+		
 		((TextView) root.findViewById(R.id.textViewName)).setText(architect
 				.getName_person() + " " + architect.getLastname_person());
+		
+		((TextView) root.findViewById(R.id.textViewName)).setTypeface(tf);
+		
+		((TextView) root.findViewById(R.id.textViewName)).setText(architect
+				.getName_person() + " " + architect.getLastname_person());
+		
 		((TextView) root.findViewById(R.id.textViewCity)).setText(architect
 				.getCity());
+		((TextView) root.findViewById(R.id.textViewCity)).setTypeface(tf);
 
 		((TextView) root.findViewById(R.id.textViewBio)).setText(architect
 				.getBio_person());
+		((TextView) root.findViewById(R.id.textViewBio)).setTypeface(tfLight);
 
 		Picasso.with(mActivity).load(architect.getBig())
 				.into((ImageView) root.findViewById(R.id.imageViewArchitect));
