@@ -8,5 +8,7 @@
     <color name="counter_text_color">#c5c4c4</color>
     <color name="white_color">#FFFFFF</color>
     <color name="red_color">#CE3B43</color>
+    <color name="black_color">#000000</color>
+    <color name="gray_ligth_color">#DDDDDD</color>
    	<color name="red_dark_color">#8C0000</color>
 </resources>
