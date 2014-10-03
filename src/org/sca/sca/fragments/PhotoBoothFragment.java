@@ -3,6 +3,8 @@ package org.sca.sca.fragments;
 import org.sca.sca.R;
 import org.sca.sca.controllers.CameraActivity;
 import org.sca.sca.controllers.GalleryActivity;
+import org.sca.sca.model.Photo;
+import org.sca.sca.model.RegionModel;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -25,6 +27,7 @@ public class PhotoBoothFragment extends Fragment {
 	private ImageButton mCameraButton;
 	private ImageButton mGalleryButton;
 	private ImageView mImageTaked;
+	private RegionModel mRegion;
 	
 
 	@Override
@@ -91,6 +94,9 @@ public class PhotoBoothFragment extends Fragment {
 			
 			if (filename !=null) {
 				Log.i(TAG, "filename" + filename);
+				Photo p = new Photo (filename);
+				mRegion.setPhoto(p);
+				
 				
 			}
 			

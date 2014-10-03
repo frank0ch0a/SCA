@@ -43,9 +43,10 @@
     <TextView
         android:id="@+id/address_textView"
         android:layout_width="90dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignBottom="@+id/imageViewNews"
         android:layout_alignLeft="@+id/president_region_textView"
+        android:layout_below="@+id/city_textView"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

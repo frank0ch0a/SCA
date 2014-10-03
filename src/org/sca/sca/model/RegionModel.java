@@ -2,7 +2,11 @@ package org.sca.sca.model;
 
 import java.util.ArrayList;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class RegionModel {
+	private static final String JSON_PHOTO ="photo";
 
 	private String id_reg;
 	private String name_reg;
@@ -25,6 +29,10 @@ public class RegionModel {
 	private String t02;
 	private String t03;
 	private ArrayList<Architect> persons;
+	private Photo mPhoto;
+	
+	
+	
 
 	public RegionModel(String id_reg, String name_reg, String abr_reg,
 			String slug_reg, String dir_reg, String phone_reg, String city_reg,
@@ -224,5 +232,26 @@ public class RegionModel {
 	public void setPersons(ArrayList<Architect> persons) {
 		this.persons = persons;
 	}
+	
+public RegionModel(JSONObject json)throws JSONException{
+	
+	if (mPhoto != null) {
+		
+		json.put(JSON_PHOTO, mPhoto.toJSON());
+		
+	}
+	
+}
+
+	public Photo getPhoto(){
+		
+		return mPhoto;
+	}
+	
+	public void setPhoto(Photo p){
+		
+		mPhoto = p;
+	}
+
 
 }
