@@ -55,7 +55,7 @@ public class LoginActivity extends Activity {
 			public void onClick(View v) {
 				Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
 				startActivity(i);
-				
+				finish();
 			}
 		});
 		

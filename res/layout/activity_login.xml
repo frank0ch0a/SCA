@@ -74,6 +74,7 @@
             android:padding="10dp"
             android:text="¿Olvido contraseña?"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black_color"
             android:textSize="16sp" />
 
         <Button
@@ -81,6 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/red_color"
+            android:padding="5dp"
             android:text="Iniciar Sesión"
             android:textColor="@color/white_color"
             android:textSize="25sp" />
@@ -94,6 +96,7 @@
             android:padding="10dp"
             android:text="¿No tienes cuenta? Regístrate"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black_color"
             android:textSize="16sp" />
 
     </LinearLayout>
