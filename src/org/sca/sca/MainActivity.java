@@ -1,4 +1,4 @@
-package org.sca.sca.controllers;
+package org.sca.sca;
 
 import java.util.ArrayList;
 
