@@ -31,11 +31,8 @@ public class PhotoBoothFragment extends Fragment {
 	private ImageButton mGalleryButton;
 	private ImageView mImageTaked;
 	private RegionModel mRegion;
-<<<<<<< Updated upstream
 	private String photoUrl;
-=======
 
->>>>>>> Stashed changes
 	
 
 	@Override
@@ -99,12 +96,10 @@ public class PhotoBoothFragment extends Fragment {
 		
 		if (requestCode == REQUEST_PHOTO) {
 			
-<<<<<<< Updated upstream
-			String filename = "photo.jpg";//data.getStringExtra(CameraFragment.EXTRA_PHOTO_FILENAME);
-=======
-String filename = data
+
+			String filename = data
 					.getStringExtra(CameraFragment.EXTRA_PHOTO_FILENAME);
->>>>>>> Stashed changes
+
 			
 			Log.e("SAFE PHOTO", filename);
 			 
@@ -124,7 +119,7 @@ String filename = data
 		
 	}
 	
-<<<<<<< Updated upstream
+
 	class Task extends AsyncTask<Void, Void, Void>
 	{
 		ProgressDialog pd;
@@ -151,9 +146,6 @@ String filename = data
 		}
 		
 	}
-=======
-	
-	
->>>>>>> Stashed changes
+
 
 }

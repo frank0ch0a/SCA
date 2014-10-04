@@ -36,11 +36,9 @@ No sed sonet maiestatis elaboraret, ad erant perpetua partiendo eum. Cu qui quis
         <item>@drawable/ic_news</item>
         <item>@drawable/ic_photobooth</item>
         <item>@drawable/ic_events</item>
-<<<<<<< Updated upstream
         <item>@drawable/ic_contests</item>
-=======
-        <item>@drawable/ic_regions</item>
->>>>>>> Stashed changes
+
+
         
     </array>
 

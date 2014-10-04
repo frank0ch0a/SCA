@@ -220,14 +220,9 @@ public class MainActivity extends YouTubeBaseActivity {
 			
 			
 		case 3:
-<<<<<<< Updated upstream
-			fragment = new RegionListFragment();
-=======
 
-			Intent intent = new Intent(MainActivity.this, PhotoBoothActivity.class);
-			MainActivity.this.startActivity(intent);
-			
->>>>>>> Stashed changes
+			fragment = new RegionListFragment();
+
 			break;
 			
 			
