@@ -9,16 +9,20 @@ import java.util.UUID;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.MIME;
+import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.CoreProtocolPNames;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,63 +62,29 @@ import android.util.Log;
 				throws MalformedURLException, IOException, JSONException {
 
 			APIPhotoBookConnection apiConnect = new APIPhotoBookConnection();
-			HttpClient client = new DefaultHttpClient();
 			
-			//URLConnection conn = new URL(apiURL + tp + apiKey).openConnection();
-
-			/* objeto que permite enviar datos POST */
-			HttpPost post = new HttpPost(apiURL + tp + apiKey);
-			post.setHeader("Accept", "application/json");
-			
-			MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-			builder.setCharset(MIME.UTF8_CHARSET);
-			FileBody bin = new FileBody(new File(photo));
-			
-			
-		
-			//A–ade los parametros 
-		
-			builder.addTextBody("_token_a", Token.getTokenInitial(context).getToken_a(), ContentType.create("text/plain", MIME.UTF8_CHARSET));
-			builder.addTextBody("_token_b", Token.getTokenInitial(context).getToken_b(), ContentType.create("text/plain", MIME.UTF8_CHARSET));
-			builder.addTextBody("_session", Token.getTokenInitial(context).getSession(), ContentType.create("text/plain", MIME.UTF8_CHARSET));
-			builder.addTextBody("id_frame_event", "3", ContentType.create("text/plain", MIME.UTF8_CHARSET));
-			builder.addTextBody("loc", "7.5324235 -45.234232", ContentType.create("text/plain", MIME.UTF8_CHARSET));
-			builder.addPart("photo", bin);
-			/*
-			List<NameValuePair> params= new ArrayList<NameValuePair>();
-		
-			params.add(new BasicNameValuePair("_token_a",Token.getTokenInitial(context).getToken_a()));
-			params.add(new BasicNameValuePair("_token_b",Token.getTokenInitial(context).getToken_b()));
-			params.add(new BasicNameValuePair("_session",Token.getTokenInitial(context).getSession()));
-			params.add(new BasicNameValuePair("id_frame_event", "3"));
-			params.add(new BasicNameValuePair("loc","7.5324235 -45.234232"));
-			params.add(new BasicNameValuePair("photo",passwd));
-*/
-			post.setEntity(builder.build());
-			
-			HttpResponse response = client.execute(post);
-			HttpEntity entity= response.getEntity();
-			if(entity!=null){
-			
-				String s = EntityUtils.toString(entity).toString();
-				JSONObject json = new JSONObject(s);
-				Log.e("SAFE-APILOGIN", json.toString());
-				if(json.has("err")){
-					Token.getTokenInitial(context).update("", "", "");
-				}else{
-					JSONObject json1 = json.getJSONObject("_user");
-					
-					if(json1.has("_token_a") && json1.has("_token_b")  && json1.has("_session"))
-					{
-						String token_a = json1.getString("_token_a");
-						String token_b = json1.getString("_token_b");
-						String session = json1.getString("_session");
-						Log.e("SAFE OK Login", json1.getString("_token_a")+" - "+json1.getString("_token_b")+" - "+json1.getString("_session"));
-						Token.getTokenInitial(context).update(token_a, token_b, session);
-					}
-				}
-				
-			} 
+			try {
+                HttpClient httpclient = new DefaultHttpClient();
+                httpclient.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
+                HttpPost httppost = new HttpPost(apiURL+tp+apiKey);
+                File file = new File(photo);
+                MultipartEntity mpEntity = new MultipartEntity();
+                ContentBody foto = new FileBody(file, "image/jpeg");
+                mpEntity.addPart("fotoUp", foto);
+                httppost.setEntity(mpEntity);
+                HttpResponse response = httpclient.execute(httppost);
+                
+                HttpEntity entity= response.getEntity();
+                if(entity!=null){
+            		
+        			String s = EntityUtils.toString(entity).toString();
+        			Log.e("SAFE Return Service", s);
+                }
+                
+                httpclient.getConnectionManager().shutdown();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 
 			return apiConnect;

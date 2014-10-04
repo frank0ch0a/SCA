@@ -21,11 +21,9 @@ public class StarViewActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		
-		
-		
 		String token= Token.getTokenInitial(getApplicationContext()).getToken_a();
 		Log.e("SAFE -- SAFE", token);
-		if( !token.equals("None" ) )
+		if( token.equals("None") )
 		{
 			setContentView(R.layout.activity_start_view);
 			
@@ -50,13 +48,13 @@ public class StarViewActivity extends Activity {
 					startActivity(i);
 					finish();
 				}
-			});
+			}); 
 			
 			
 		}
 		else{
 		
-			Log.e("SAFE -- SAFE", Token.getTokenInitial(getApplicationContext()).getToken_a());
+			Log.e("SAFE -- SAFE Else", Token.getTokenInitial(getApplicationContext()).getToken_a());
 			Intent i = new Intent(getApplicationContext(), MainActivity.class);
 			startActivity(i);
 			finish();

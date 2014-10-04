@@ -20,7 +20,7 @@
               android:layout_height="wrap_content">
 
               <ImageView
-                  android:id="@+id/imageView1"
+                  android:id="@+id/ivPhoto"
                   android:layout_width="match_parent"
                   android:layout_height="150dp"
                   android:layout_alignParentLeft="true"
