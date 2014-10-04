@@ -142,12 +142,12 @@ containing a value of this type.
         public static final int address_textView=0x7f0a004e;
         public static final int bg_contest=0x7f0a0029;
         public static final int bg_photobooth=0x7f0a003b;
+        public static final int btnCloseSession=0x7f0a0040;
         public static final int btnCronograma=0x7f0a0036;
         public static final int btnLogin=0x7f0a0013;
         public static final int btnLoginLogin=0x7f0a0006;
         public static final int btnRegister=0x7f0a0011;
         public static final int button1=0x7f0a003f;
-        public static final int button2=0x7f0a0040;
         public static final int buttonLoadPicture=0x7f0a0039;
         public static final int buttonVer=0x7f0a002d;
         public static final int cameraButton=0x7f0a003d;

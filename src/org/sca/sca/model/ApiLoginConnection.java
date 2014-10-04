@@ -77,7 +77,7 @@ public class ApiLoginConnection {
 			JSONObject json = new JSONObject(s);
 			Log.e("SAFE-APILOGIN", json.toString());
 			if(json.has("err")){
-				Token.getTokenInitial(context).update("", "", "");
+				Token.getTokenInitial(context).update("None", "None", "None");
 			}else{
 				JSONObject json1 = json.getJSONObject("_user");
 				

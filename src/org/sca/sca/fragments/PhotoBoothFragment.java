@@ -63,10 +63,10 @@ public class PhotoBoothFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				
+				/*
 				Intent i= new Intent(getActivity(),GalleryActivity.class);
 				startActivityForResult(i, LOAD_PHOTO);
-				
+				*/
 				
 			}
 		});

@@ -5,6 +5,7 @@ import org.sca.sca.util.Token;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,37 +20,46 @@ public class StarViewActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		if(Token.getTokenInitial(getApplicationContext()).getToken_a()!="" && Token.getTokenInitial(getApplicationContext()).getToken_b() !="" && Token.getTokenInitial(getApplicationContext()).getSession() != "")
+		
+		
+		
+		String token= Token.getTokenInitial(getApplicationContext()).getToken_a();
+		Log.e("SAFE -- SAFE", token);
+		if( token == "None" )
 		{
+			setContentView(R.layout.activity_start_view);
+			
+			btnLogin = (Button) findViewById(R.id.btnLogin);
+			btnRegister = (Button) findViewById(R.id.btnRegister);
+			
+			btnLogin.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+					startActivity(i);
+					finish();
+				}
+			});
+			
+			btnRegister.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
+					startActivity(i);
+					finish();
+				}
+			});
+			
+			
+		}
+		else{
+		
+			Log.e("SAFE -- SAFE", Token.getTokenInitial(getApplicationContext()).getToken_a());
 			Intent i = new Intent(getApplicationContext(), MainActivity.class);
 			startActivity(i);
 			finish();
 		}
-		
-		setContentView(R.layout.activity_start_view);
-		
-		btnLogin = (Button) findViewById(R.id.btnLogin);
-		btnRegister = (Button) findViewById(R.id.btnRegister);
-		
-		btnLogin.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-				startActivity(i);
-				finish();
-			}
-		});
-		
-		btnRegister.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
-				startActivity(i);
-				finish();
-			}
-		});
-		
 	}
 }
