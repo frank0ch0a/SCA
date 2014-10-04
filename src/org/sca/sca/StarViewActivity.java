@@ -25,7 +25,7 @@ public class StarViewActivity extends Activity {
 		
 		String token= Token.getTokenInitial(getApplicationContext()).getToken_a();
 		Log.e("SAFE -- SAFE", token);
-		if( token == "None" )
+		if( !token.equals("None" ) )
 		{
 			setContentView(R.layout.activity_start_view);
 			

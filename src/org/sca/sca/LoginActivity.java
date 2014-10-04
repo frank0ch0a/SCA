@@ -114,7 +114,7 @@ public class LoginActivity extends Activity {
 
 		@Override
 		protected void onPostExecute(Void result) {
-			if(Token.getTokenInitial(getApplicationContext()).getToken_a()!="" && Token.getTokenInitial(getApplicationContext()).getToken_b() !="" && Token.getTokenInitial(getApplicationContext()).getSession() != "")
+			if(!Token.getTokenInitial(getApplicationContext()).getToken_a().equals("None" ) && !Token.getTokenInitial(getApplicationContext()).getToken_b().equals("None" ) && !Token.getTokenInitial(getApplicationContext()).getSession().equals("None" ))
 			{
 				Intent i = new Intent(getApplicationContext(), MainActivity.class);
 				startActivity(i);
