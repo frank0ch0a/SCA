@@ -27,7 +27,11 @@ import android.widget.ImageButton;
 
 public class CameraFragment extends Fragment {
 	private static final String TAG = "CameraFragment";
+<<<<<<< Updated upstream
 	public static final String EXTRA_PHOTO_FILENAME ="filename";
+=======
+	public static final String EXTRA_PHOTO_FILENAME ="CameraFragment.filename";
+>>>>>>> Stashed changes
 	private Camera mCamera;
 	private SurfaceView mSurfaceView;
 	private View mProgressContainer;

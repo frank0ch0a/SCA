@@ -62,6 +62,12 @@
             
         </activity>
         
+         <activity android:name="org.sca.sca.controllers.PhotoBoothActivity"
+             android:label="@string/app_name">
+            
+            
+        </activity>
+         
 
     </application>
 

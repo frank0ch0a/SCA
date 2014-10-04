@@ -29,8 +29,8 @@ public class EventDetailFragment extends Fragment {
 
 	private ImageView mImageEventBG = null;
 	private ListView mEventList;
-	private RadioButton mEventDay1Btn = null;
-	private RadioButton mEventDay2Btn = null;
+	private Button mDay1Button = null;
+	private Button mDay2Button = null;
 	private ArrayList<ActivitiesModel> day1;
 	private ArrayList<ActivitiesModel> day2;
 	private Activity mActivity;
@@ -47,8 +47,9 @@ public class EventDetailFragment extends Fragment {
 
 		mImageEventBG = (ImageView) rootView.findViewById(R.id.imageViewNews);
 		mEventList = (ListView) rootView.findViewById(R.id.listViewDays);
-		mEventDay1Btn = (RadioButton) rootView.findViewById(R.id.event_day1);
-		mEventDay2Btn = (RadioButton) rootView.findViewById(R.id.event_day2);
+		mDay1Button =(Button)rootView.findViewById(R.id.day1Button);
+		mDay2Button =(Button)rootView.findViewById(R.id.day2Button);
+		
 		day1 = new ArrayList<ActivitiesModel>();
 		day2 = new ArrayList<ActivitiesModel>();
 		System.out.println(EventsFragment.jsonO);
@@ -61,7 +62,7 @@ public class EventDetailFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
-				if (mEventDay1Btn.isChecked()) {
+				if (mDay1Button.isEnabled()) {
 					FragmentManager fragmentManager = getFragmentManager();
 					fragmentManager
 							.beginTransaction()
@@ -81,31 +82,27 @@ public class EventDetailFragment extends Fragment {
 			}
 
 		});
-		mEventDay1Btn.setChecked(true);
-
-		mEventDay1Btn.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
+		
+		mDay1Button.setOnClickListener(new View.OnClickListener() {
+			
 			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					mEventList.setAdapter(new EventDetailAdapter(mActivity,
-							day1));
-				}
+			public void onClick(View v) {
+				
+				mEventList.setAdapter(new EventDetailAdapter(mActivity,
+						day1));
 			}
 		});
-
-		mEventDay2Btn.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
+		
+		mDay2Button.setOnClickListener(new View.OnClickListener() {
+			
 			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked) {
-					mEventList.setAdapter(new EventDetailAdapter(mActivity,
-							day2));
-				}
+			public void onClick(View v) {
+				mEventList.setAdapter(new EventDetailAdapter(mActivity,
+						day2));
+				
 			}
 		});
+		
 
 		return rootView;
 	}

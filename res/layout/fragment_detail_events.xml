@@ -13,36 +13,44 @@
         android:scaleType="fitXY"
         android:src="@drawable/bg_cronograma" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageViewNews"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:id="@+id/event_day1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="Dia 1" />
-
-        <RadioButton
-            android:id="@+id/event_day2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Dia 2" />
-    </RadioGroup>
-
     <ListView
         android:id="@+id/listViewDays"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/radioGroup1" >
+        android:layout_below="@+id/linearLayoutButtons" >
     </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageViewNews"
+        android:id="@+id/linearLayoutButtons">"
+
+        <Button
+            android:id="@+id/day1Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@color/red_color"
+            android:text="@string/day1"
+            android:textColor="@color/white_color" />
+
+        <Button
+            android:id="@+id/day2Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@color/red_color"
+            android:text="@string/day2"
+            android:textColor="@color/white_color" />
+
+    </LinearLayout>
 
 </RelativeLayout>

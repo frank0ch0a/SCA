@@ -91,6 +91,7 @@ containing a value of this type.
         public static final int bg_photoboth=0x7f020005;
         public static final int bg_profile2=0x7f020006;
         public static final int bg_profile_05=0x7f020007;
+<<<<<<< Updated upstream
         public static final int bg_profile_button=0x7f020008;
         public static final int bg_reg_title=0x7f020009;
         public static final int cargando=0x7f02000a;
@@ -130,14 +131,59 @@ containing a value of this type.
         public static final int red_button=0x7f02002c;
         public static final int regional=0x7f02002d;
         public static final int regionplaceholder=0x7f02002e;
+=======
+        public static final int bg_reg_title=0x7f020008;
+        public static final int camara2=0x7f020009;
+        public static final int cargando=0x7f02000a;
+        public static final int counter_bg=0x7f02000b;
+        public static final int divider=0x7f02000c;
+        public static final int galeria2=0x7f02000d;
+        public static final int ic_architects=0x7f02000e;
+        public static final int ic_communities=0x7f02000f;
+        public static final int ic_contests=0x7f020010;
+        public static final int ic_drawer=0x7f020011;
+        public static final int ic_events=0x7f020012;
+        public static final int ic_home=0x7f020013;
+        public static final int ic_launcher=0x7f020014;
+        public static final int ic_login=0x7f020015;
+        public static final int ic_logo=0x7f020016;
+        public static final int ic_mail=0x7f020017;
+        public static final int ic_news=0x7f020018;
+        public static final int ic_news_07=0x7f020019;
+        public static final int ic_pages=0x7f02001a;
+        public static final int ic_passwd=0x7f02001b;
+        public static final int ic_people=0x7f02001c;
+        public static final int ic_photobooth=0x7f02001d;
+        public static final int ic_photos=0x7f02001e;
+        public static final int ic_profile=0x7f02001f;
+        public static final int ic_regions=0x7f020020;
+        public static final int ic_register=0x7f020021;
+        public static final int ic_user=0x7f020022;
+        public static final int ic_whats_hot=0x7f020023;
+        public static final int ic_who=0x7f020024;
+        public static final int list_item_bg_normal=0x7f020025;
+        public static final int list_item_bg_pressed=0x7f020026;
+        public static final int list_selector=0x7f020027;
+        public static final int logo=0x7f020028;
+        public static final int logo_sca_=0x7f020029;
+        public static final int red_button=0x7f02002a;
+        public static final int regional=0x7f02002b;
+        public static final int regionplaceholder=0x7f02002c;
+>>>>>>> Stashed changes
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0a0000;
         public static final int LinearLayout2=0x7f0a0034;
         public static final int LinearLayoutImagenes=0x7f0a0024;
+<<<<<<< Updated upstream
         public static final int RelativeLayout1=0x7f0a0048;
         public static final int action_settings=0x7f0a0052;
         public static final int address_textView=0x7f0a004e;
+=======
+        public static final int RelativeLayout1=0x7f0a003f;
+        public static final int action_settings=0x7f0a004f;
+        public static final int address_textView=0x7f0a004b;
+>>>>>>> Stashed changes
         public static final int bg_contest=0x7f0a0029;
         public static final int bg_photobooth=0x7f0a003b;
         public static final int btnCronograma=0x7f0a0036;
@@ -153,9 +199,15 @@ containing a value of this type.
         public static final int camera_surfaceView=0x7f0a0025;
         public static final int camera_takeButton=0x7f0a0026;
         public static final int circle_image=0x7f0a0014;
+<<<<<<< Updated upstream
         public static final int city_textView=0x7f0a004c;
+=======
+        public static final int city_textView=0x7f0a0049;
+>>>>>>> Stashed changes
         public static final int counter=0x7f0a001a;
         public static final int date=0x7f0a0016;
+        public static final int day1Button=0x7f0a0031;
+        public static final int day2Button=0x7f0a0032;
         public static final int description=0x7f0a0015;
         public static final int drawer_layout=0x7f0a0008;
         public static final int editText1=0x7f0a0041;
@@ -167,8 +219,7 @@ containing a value of this type.
         public static final int editTextLoginemail=0x7f0a0003;
         public static final int editTextName=0x7f0a000d;
         public static final int editTextPassword=0x7f0a000f;
-        public static final int event_day1=0x7f0a0030;
-        public static final int event_day2=0x7f0a0031;
+        public static final int event_day2=0x7f0a0041;
         public static final int frame_container=0x7f0a0009;
         public static final int galleryButton=0x7f0a003e;
         public static final int horizontalScrollView1=0x7f0a0023;
@@ -182,10 +233,12 @@ containing a value of this type.
         public static final int imageViewArchitect=0x7f0a001f;
         public static final int imageViewImageActivity=0x7f0a001b;
         public static final int imageViewNews=0x7f0a002e;
+        public static final int linearLayoutButtons=0x7f0a0030;
         public static final int listView=0x7f0a0028;
-        public static final int listViewDays=0x7f0a0032;
+        public static final int listViewDays=0x7f0a002f;
         public static final int listViewNews=0x7f0a003a;
         public static final int list_slidermenu=0x7f0a000a;
+<<<<<<< Updated upstream
         public static final int president_region_textView=0x7f0a004d;
         public static final int progressBar1=0x7f0a0017;
         public static final int radioGroup1=0x7f0a002f;
@@ -195,6 +248,16 @@ containing a value of this type.
         public static final int sca_description=0x7f0a0047;
         public static final int sca_title=0x7f0a0046;
         public static final int sca_title_scroll=0x7f0a0045;
+=======
+        public static final int president_region_textView=0x7f0a004a;
+        public static final int progressBar1=0x7f0a0017;
+        public static final int regionplaceholder=0x7f0a004c;
+        public static final int regions_list=0x7f0a000b;
+        public static final int regions_list_viewArchitects=0x7f0a0048;
+        public static final int sca_description=0x7f0a0045;
+        public static final int sca_title=0x7f0a0044;
+        public static final int sca_title_scroll=0x7f0a0043;
+>>>>>>> Stashed changes
         public static final int scrollView1=0x7f0a000c;
         public static final int textViewBio=0x7f0a0022;
         public static final int textViewCity=0x7f0a0021;
@@ -204,6 +267,7 @@ containing a value of this type.
         public static final int textViewLoginRegister=0x7f0a0007;
         public static final int textViewLoginRememberPass=0x7f0a0005;
         public static final int textViewName=0x7f0a0020;
+<<<<<<< Updated upstream
         public static final int textViewNews=0x7f0a004a;
         public static final int textViewSesion=0x7f0a0012;
         public static final int textViewTitle=0x7f0a001c;
@@ -215,6 +279,19 @@ containing a value of this type.
         public static final int txtDescription=0x7f0a0035;
         public static final int txtLabel=0x7f0a0037;
         public static final int youtubeplayer=0x7f0a0044;
+=======
+        public static final int textViewNews=0x7f0a0047;
+        public static final int textViewSesion=0x7f0a0012;
+        public static final int textViewTitle=0x7f0a001c;
+        public static final int textViewTitleContest=0x7f0a002a;
+        public static final int textViewTitleNews=0x7f0a0046;
+        public static final int title=0x7f0a0019;
+        public static final int title_reg_imageView=0x7f0a004d;
+        public static final int title_reg_textView=0x7f0a004e;
+        public static final int txtDescription=0x7f0a0035;
+        public static final int txtLabel=0x7f0a0037;
+        public static final int youtubeplayer=0x7f0a0042;
+>>>>>>> Stashed changes
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
@@ -256,17 +333,19 @@ containing a value of this type.
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
+        public static final int day1=0x7f060007;
+        public static final int day2=0x7f060008;
         /**  Content Description 
          */
-        public static final int desc_list_item_icon=0x7f060007;
+        public static final int desc_list_item_icon=0x7f060009;
         public static final int drawer_close=0x7f060003;
         public static final int drawer_open=0x7f060002;
-        public static final int hello_world=0x7f060009;
+        public static final int hello_world=0x7f06000b;
         public static final int sca_descripcion=0x7f060005;
         public static final int sca_title=0x7f060004;
         public static final int take=0x7f060006;
-        public static final int title_activity_login=0x7f060008;
-        public static final int title_activity_register=0x7f06000a;
+        public static final int title_activity_login=0x7f06000a;
+        public static final int title_activity_register=0x7f06000c;
     }
     public static final class style {
         /** 

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.sca.sca.R;
 import org.sca.sca.adapters.NavDrawerListAdapter;
+import org.sca.sca.controllers.CameraActivity;
+import org.sca.sca.controllers.PhotoBoothActivity;
 import org.sca.sca.fragments.CompetitionFragment;
 import org.sca.sca.fragments.EventsFragment;
 import org.sca.sca.fragments.HomeFragment;
@@ -20,6 +22,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -217,7 +220,14 @@ public class MainActivity extends YouTubeBaseActivity {
 			
 			
 		case 3:
+<<<<<<< Updated upstream
 			fragment = new RegionListFragment();
+=======
+
+			Intent intent = new Intent(MainActivity.this, PhotoBoothActivity.class);
+			MainActivity.this.startActivity(intent);
+			
+>>>>>>> Stashed changes
 			break;
 			
 			
