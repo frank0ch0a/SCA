@@ -3,14 +3,17 @@ package org.sca.sca.fragments;
 import org.sca.sca.R;
 import org.sca.sca.controllers.CameraActivity;
 import org.sca.sca.controllers.GalleryActivity;
+import org.sca.sca.model.APIPhotoBookConnection;
 import org.sca.sca.model.Photo;
 import org.sca.sca.model.RegionModel;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +31,7 @@ public class PhotoBoothFragment extends Fragment {
 	private ImageButton mGalleryButton;
 	private ImageView mImageTaked;
 	private RegionModel mRegion;
+	private String photoUrl;
 	
 
 	@Override
@@ -84,19 +88,24 @@ public class PhotoBoothFragment extends Fragment {
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		
-		if (requestCode != Activity.RESULT_OK)return; 
+		Log.e("SAFE PHOTO", requestCode+" - "+REQUEST_PHOTO+data);
+		if (requestCode != Activity.RESULT_OK)
+			return; 
 		
 		if (requestCode == REQUEST_PHOTO) {
 			
-			String filename = data
-					.getStringExtra(CameraFragment.EXTRA_PHOTO_FILENAME);
+			String filename = "photo.jpg";//data.getStringExtra(CameraFragment.EXTRA_PHOTO_FILENAME);
 			
-			if (filename !=null) {
+			Log.e("SAFE PHOTO", filename);
+			 
+			if (filename != null) {
 				Log.i(TAG, "filename" + filename);
 				Photo p = new Photo (filename);
 				mRegion.setPhoto(p);
-				
+				photoUrl= mRegion.getPhoto().getFilename();
+				Log.e("SAFE PHOTO", "Task");
+				new Task().execute();
+				Log.e("SAFE PHOTO", "DespuesTask");
 				
 			}
 			
@@ -105,6 +114,31 @@ public class PhotoBoothFragment extends Fragment {
 		
 	}
 	
-	
+	class Task extends AsyncTask<Void, Void, Void>
+	{
+		ProgressDialog pd;
+		@Override
+		protected Void doInBackground(Void... params) {
+			Log.e("SAFE PHOTO", "Dobackgroud");
+			APIPhotoBookConnection.getInstance("tp=9&", photoUrl, getActivity());
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			pd.dismiss();
+			super.onPostExecute(result);
+		}
+
+		@Override
+		protected void onPreExecute() {
+			pd = new ProgressDialog(getActivity());
+			pd.setCancelable(true);
+			pd.setMessage("Esta Subiendo");
+			pd.show();
+			super.onPreExecute();
+		}
+		
+	}
 
 }

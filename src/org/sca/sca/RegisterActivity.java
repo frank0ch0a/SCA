@@ -75,5 +75,16 @@ public class RegisterActivity extends Activity {
 			return null;
 		}
 		
+		@Override
+		protected void onPostExecute(Void result) {
+			if(Token.getTokenInitial(getApplicationContext()).getToken_a()!="" && Token.getTokenInitial(getApplicationContext()).getToken_b() !="" && Token.getTokenInitial(getApplicationContext()).getSession() != "")
+			{
+				Intent i = new Intent(getApplicationContext(), MainActivity.class);
+				startActivity(i);
+				finish();
+			}
+			super.onPostExecute(result);
+		}
+		
 	}
 }

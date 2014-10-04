@@ -1,5 +1,7 @@
 package org.sca.sca;
 
+import org.sca.sca.util.Token;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,14 @@ public class StarViewActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		if(Token.getTokenInitial(getApplicationContext()).getToken_a()!="" && Token.getTokenInitial(getApplicationContext()).getToken_b() !="" && Token.getTokenInitial(getApplicationContext()).getSession() != "")
+		{
+			Intent i = new Intent(getApplicationContext(), MainActivity.class);
+			startActivity(i);
+			finish();
+		}
+		
 		setContentView(R.layout.activity_start_view);
 		
 		btnLogin = (Button) findViewById(R.id.btnLogin);

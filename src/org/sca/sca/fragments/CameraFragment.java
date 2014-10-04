@@ -27,7 +27,7 @@ import android.widget.ImageButton;
 
 public class CameraFragment extends Fragment {
 	private static final String TAG = "CameraFragment";
-	public static final String EXTRA_PHOTO_FILENAME ="org.sca.sca.photo_filename";
+	public static final String EXTRA_PHOTO_FILENAME ="filename";
 	private Camera mCamera;
 	private SurfaceView mSurfaceView;
 	private View mProgressContainer;
@@ -78,6 +78,7 @@ public class CameraFragment extends Fragment {
 				Log.i(TAG, "JPEG saved at 	" + filename);
 				//Set photo filename on the result intent
 				Intent i = new Intent();
+				Log.e("SAFE Nombre Extra", EXTRA_PHOTO_FILENAME);
 				i.putExtra(EXTRA_PHOTO_FILENAME, filename);
 				getActivity().setResult(Activity.RESULT_OK, i);
 				

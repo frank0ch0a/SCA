@@ -9,6 +9,7 @@ import org.sca.sca.fragments.EventsFragment;
 import org.sca.sca.fragments.HomeFragment;
 import org.sca.sca.fragments.NewsFragment;
 import org.sca.sca.fragments.PhotoBoothFragment;
+import org.sca.sca.fragments.ProfileFragment;
 import org.sca.sca.fragments.RegionListFragment;
 import org.sca.sca.fragments.WhoWeAreFragment;
 import org.sca.sca.model.NavDrawerItem;
@@ -73,24 +74,37 @@ public class MainActivity extends YouTubeBaseActivity {
 		// Home
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
 				.getResourceId(0, -1)));
+		//Perfil
 		// Architects
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
 				.getResourceId(1, -1)));
-		// News
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
-				.getResourceId(2, -1)));
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
-				.getResourceId(2, -1)));
-		// Concursos
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
-				.getResourceId(3, -1)));
-		// Events
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
-				.getResourceId(4, -1)));
-
+		
 		// WhoWeAre
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons
+				navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
+					.getResourceId(2, -1)));		
+		
+				// Architects
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
+				.getResourceId(3, -1)));
+		
+		// News
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
 				.getResourceId(4, -1)));
+		
+		// PhotoBook
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
+				.getResourceId(5, -1)));
+		
+		// Events
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons
+				.getResourceId(6, -1)));
+		
+		// Concursos
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons
+				.getResourceId(7, -1)));
+		
+
+		
 
 		// Recycle the typed array
 		navMenuIcons.recycle();
@@ -192,25 +206,39 @@ public class MainActivity extends YouTubeBaseActivity {
 			Log.e("Safe", "entro a la portada");
 			fragment = new HomeFragment();
 			break;
+			
 		case 1:
+			fragment = new ProfileFragment();
+			break;
+			
+		case 2:
+			fragment = new WhoWeAreFragment();
+			break;
+			
+			
+		case 3:
 			fragment = new RegionListFragment();
 			break;
-		case 2:
+			
+			
+		case 4:
 			fragment = new NewsFragment();
 			break;
-		case 3:
+			
+			
+		case 5:
 			fragment = new PhotoBoothFragment();
 			break;
-		case 4:
-			fragment = new CompetitionFragment();
-			break;
-		case 5:
-			fragment = new EventsFragment();
-			break;
+			
 
 		case 6:
-			fragment = new WhoWeAreFragment();
-
+			fragment = new EventsFragment();
+			break;
+			
+		case 7:
+			fragment = new CompetitionFragment();
+			break;
+			
 		default:
 			break;
 		}
