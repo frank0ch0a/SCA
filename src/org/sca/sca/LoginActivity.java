@@ -9,6 +9,7 @@ import org.sca.sca.model.ApiLoginConnection;
 import org.sca.sca.util.Token;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -104,6 +105,7 @@ public class LoginActivity extends Activity {
 	}
 	
 	class Task extends AsyncTask<Void, Void, Void>{
+		ProgressDialog pd1;
 		
 		@Override
 		protected Void doInBackground(Void... params) {
@@ -114,6 +116,7 @@ public class LoginActivity extends Activity {
 
 		@Override
 		protected void onPostExecute(Void result) {
+			pd1.dismiss();
 			if(!Token.getTokenInitial(getApplicationContext()).getToken_a().equals("None" ) && !Token.getTokenInitial(getApplicationContext()).getToken_b().equals("None" ) && !Token.getTokenInitial(getApplicationContext()).getSession().equals("None" ))
 			{
 				Intent i = new Intent(getApplicationContext(), MainActivity.class);
@@ -121,6 +124,14 @@ public class LoginActivity extends Activity {
 				finish();
 			}
 			super.onPostExecute(result);
+		}
+
+		@Override
+		protected void onPreExecute() {
+			pd1 = new ProgressDialog(LoginActivity.this);
+			pd1.setMessage("Verificando Usuario");
+			pd1.show();
+			super.onPreExecute();
 		}
 		
 	}

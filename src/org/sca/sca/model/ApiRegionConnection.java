@@ -106,7 +106,7 @@ public class ApiRegionConnection {
 				images.add(jsonRegions.getString("img"));
 				JSONObject jsonImage = jsonRegions.getJSONObject("img");
 				if (jsonImage.has("t03")) {
-					image = jsonImage.getString("big");
+					image = "http://sca-events.s3.amazonaws.com"+jsonImage.getString("t03");
 				}
 			}
 

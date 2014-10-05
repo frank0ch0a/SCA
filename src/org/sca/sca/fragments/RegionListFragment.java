@@ -72,15 +72,6 @@ public class RegionListFragment extends Fragment {
 						getActivity(), apiregionconnection.getRegionsList());
 				listView.setAdapter(adapter);
 
-				/*
-				 * ArrayAdapter<Regions> adapter = new
-				 * ArrayAdapter<Regions>(getActivity(),
-				 * android.R.layout.simple_list_item_1,
-				 * apiregionconnection.getRegionsList());
-				 * listView.setAdapter(adapter);
-				 */
-				// listView.setOnItemClickListener((OnItemClickListener)getActivity());
-
 			}
 
 		};
@@ -186,7 +177,7 @@ public class RegionListFragment extends Fragment {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pd.setMessage("Obteniendo información. Por favor espere.");
+			pd.setMessage("Obteniendo informaci—n. Por favor espere.");
 			pd.setCancelable(false);
 			pd.show();
 		}

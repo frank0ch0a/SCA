@@ -84,7 +84,7 @@ public class EventsFragment extends Fragment {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pd.setMessage("Obteniendo información. Por favor espere.");
+			pd.setMessage("Obteniendo informaci—n. Por favor espere.");
 			pd.setCancelable(false);
 			pd.show();
 		}
