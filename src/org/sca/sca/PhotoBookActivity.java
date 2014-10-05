@@ -1,6 +1,10 @@
 package org.sca.sca;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.sca.sca.fragments.CameraFragment;
 import org.sca.sca.model.APIPhotoBookConnection;
@@ -31,8 +35,13 @@ public class PhotoBookActivity extends Activity {
 	ImageView ivPhoto;
 	
 	String foto;
+	String mCurrentPhotoPath;
+	
+	Bitmap imageBitmap;
+	File photoFile = null;
 	double aleatorio=0;
-	final int TAKE_PICTURE=1;
+	static final int REQUEST_IMAGE_CAPTURE = 1;
+	static final int REQUEST_TAKE_PHOTO = 1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,37 +55,110 @@ public class PhotoBookActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				aleatorio = new Double(Math.random() * 100).intValue();
-				foto = Environment.getExternalStorageDirectory() + "/imagen"+ aleatorio +".jpg";
 				
-				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-		        Uri output = Uri.fromFile(new File(foto));
-		        intent.putExtra(MediaStore.EXTRA_OUTPUT, output);
-		        startActivityForResult(intent, TAKE_PICTURE);				
+				Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+				 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+				        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+				    }		
+				    
+				//dispatchTakePictureIntent();
 			}
 		});
 	}
 
+	private File createImageFile() throws IOException {
+	    // Create an image file name
+	    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+	    String imageFileName = "JPEG_" + timeStamp + "_";
+	    File storageDir = Environment.getExternalStoragePublicDirectory(
+	            Environment.DIRECTORY_PICTURES);
+	    File image = File.createTempFile(
+	        imageFileName,  /* prefix */
+	        ".jpg",         /* suffix */
+	        storageDir      /* directory */
+	    );
+
+	    // Save a file: path for use with ACTION_VIEW intents
+	    mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+	    return image;
+	}
+	
+	private void dispatchTakePictureIntent() {
+	    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+	    // Ensure that there's a camera activity to handle the intent
+	    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+	        // Create the File where the photo should go
+	        
+	        try {
+	            photoFile = createImageFile();
+	        } catch (IOException ex) {
+	            // Error occurred while creating the File
+
+	        }
+	        // Continue only if the File was successfully created
+	        if (photoFile != null) {
+	            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+	                    Uri.fromFile(photoFile));
+	            startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+	        }
+	    }
+	}
+	private void setPic() {
+	    // Get the dimensions of the View
+	    int targetW = ivPhoto.getWidth();
+	    int targetH = ivPhoto.getHeight();
+	 
+	    // Get the dimensions of the bitmap
+	    BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+	    bmOptions.inJustDecodeBounds = true;
+	    BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+	    int photoW = bmOptions.outWidth;
+	    int photoH = bmOptions.outHeight;
+	 
+	    // Determine how much to scale down the image
+	    int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+	 
+	    // Decode the image file into a Bitmap sized to fill the View
+	    bmOptions.inJustDecodeBounds = false;
+	    bmOptions.inSampleSize = scaleFactor;
+	    bmOptions.inPurgeable = true;
+	 
+	    Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+	    ivPhoto.setImageBitmap(bitmap);
+	}
+	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		
-		if (resultCode != Activity.RESULT_CANCELED) {
-		
-		//ivPhoto.setImageBitmap(BitmapFactory.decodeFile(foto));
-		File file = new File(foto);
-		
-		if (file.exists()) {
-			Task nuevaTarea = new Task();
-            nuevaTarea.execute();
-        }
-        else
-            Toast.makeText(getApplicationContext(), "No se ha realizado la foto", Toast.LENGTH_SHORT).show();
-		
-		}
-		else
-		{
-			super.onActivityResult(requestCode, resultCode, data);
-		}
+		if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+			setPic();
+			
+	        /*Bundle extras = data.getExtras();
+	        imageBitmap = (Bitmap) extras.get("data");
+	        
+	        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+	        imageBitmap.compress(Bitmap.CompressFormat.PNG, 70, stream); //compress to which format you want.
+	        ivPhoto.setImageBitmap(imageBitmap);
+	        
+	       /*
+		        
+		    try {
+		    	photoFile = createImageFile();
+		    } catch (IOException ex) {
+		            // Error occurred while creating the File
+
+		    }
+		        // Continue only if the File was successfully created
+		    if (photoFile != null) {
+		    	new Task().execute();
+		    	
+		    }
+		*/
+	        
+	        //ivPhoto.setImageBitmap(imageBitmap);
+	        
+	        //
+	    }
 	}
 	
 	class Task extends AsyncTask<Void, Void, Void>
@@ -85,7 +167,7 @@ public class PhotoBookActivity extends Activity {
 		@Override
 		protected Void doInBackground(Void... params) {
 			Log.e("SAFE PHOTO", "Dobackgroud");
-			APIPhotoBookConnection.getInstance("tp=9&", foto, getApplicationContext());
+			APIPhotoBookConnection.getInstance("tp=9&", photoFile, getApplicationContext());
 			return null;
 		}
 

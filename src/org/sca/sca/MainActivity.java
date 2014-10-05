@@ -232,9 +232,9 @@ public class MainActivity extends YouTubeBaseActivity {
 			
 			
 		case 5:
-			fragment = new PhotoBoothFragment();
-			//Intent i = new Intent(getApplicationContext(), PhotoBookActivity.class);
-			//startActivity(i);
+			//fragment = new PhotoBoothFragment();
+			Intent i = new Intent(getApplicationContext(), PhotoBoothActivity.class);
+			startActivity(i);
 			break;
 			
 

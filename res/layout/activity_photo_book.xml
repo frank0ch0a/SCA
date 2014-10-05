@@ -26,11 +26,15 @@
 
     <ImageView
         android:id="@+id/ivPhoto"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignRight="@+id/button2"
         android:layout_marginBottom="32dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
         android:src="@drawable/bg" />
 
 </RelativeLayout>

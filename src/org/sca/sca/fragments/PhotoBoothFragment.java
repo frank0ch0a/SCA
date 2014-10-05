@@ -3,16 +3,24 @@ package org.sca.sca.fragments;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.sca.sca.MainActivity;
 import org.sca.sca.R;
 import org.sca.sca.controllers.CameraActivity;
@@ -20,6 +28,7 @@ import org.sca.sca.controllers.GalleryActivity;
 import org.sca.sca.model.APIPhotoBookConnection;
 import org.sca.sca.model.Photo;
 import org.sca.sca.model.RegionModel;
+import org.sca.sca.util.Token;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -55,6 +64,10 @@ public class PhotoBoothFragment extends Fragment {
 	private ImageView mImageTaked;
 	private RegionModel mRegion;
 	private String photoUrl;
+	String urlRemota;
+	
+	private static final String apiURL = "http://sca.siie.co/api?";
+	private static final String apiKey = "apikey=2177868a8da78fc325996838ab73cec6f9d3eaa0-71100";
 
 	
 
@@ -67,21 +80,11 @@ public class PhotoBoothFragment extends Fragment {
 		mGalleryButton =(ImageButton)v.findViewById(R.id.galleryButton);
 		
 		mImageTaked =(ImageView)v.findViewById(R.id.imageTaked);
-		
-		
 		mCameraButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				
-				/*
-				Intent i = new Intent(getActivity(),CameraActivity.class);
-				//startActivity(i);
-				startActivityForResult(i, REQUEST_PHOTO);*/
-				
 				takePhoto();
-
-				
 			}
 		});
 		
@@ -89,11 +92,10 @@ public class PhotoBoothFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				/*
-				Intent i= new Intent(getActivity(),GalleryActivity.class);
-				startActivityForResult(i, LOAD_PHOTO);
-				*/
-				
+				Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"),2);				
 			}
 		});
 		
@@ -114,9 +116,7 @@ public class PhotoBoothFragment extends Fragment {
 	}
 	
 	private void takePhoto() {
-//		Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-//		intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
-//		startActivityForResult(intent, 0);
+
 		dispatchTakePictureIntent();
 	}
 
@@ -125,86 +125,29 @@ public class PhotoBoothFragment extends Fragment {
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		
 		Log.i(TAG, "onActivityResult: " + this);
+		Log.i("SAFE ", "onActivityResult: " + requestCode + "--" + resultCode);
 		if (requestCode == REQUEST_TAKE_PHOTO && resultCode == Activity.RESULT_OK) {
 			setPic();
-//			Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-//			if (bitmap != null) {
-//				mImageView.setImageBitmap(bitmap);
-//				try {
-//					sendPhoto(bitmap);
-//				} catch (Exception e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//			}
 		}
-	}
-		/*Log.e("SAFE PHOTO", requestCode+" - "+REQUEST_PHOTO+data);
-		if (requestCode != Activity.RESULT_OK)
-			return; 
-		
-		if (requestCode == REQUEST_PHOTO) {
+		if(requestCode == LOAD_PHOTO && resultCode == Activity.RESULT_OK  && data != null)
+		{
 			
-
-			String filename = data
-					.getStringExtra(CameraFragment.EXTRA_PHOTO_FILENAME);
-
-			
-			Log.e("SAFE PHOTO", filename);
-			 
-			if (filename != null) {
-				Log.i(TAG, "filename" + filename);
-				Photo p = new Photo (filename);
-				mRegion.setPhoto(p);
-				photoUrl= mRegion.getPhoto().getFilename();
-				Log.e("SAFE PHOTO", "Task");
-				new Task().execute();
-				Log.e("SAFE PHOTO", "DespuesTask");
-				
-			}
-			
+			setPicGallery(data.getData());
 		}
-		
-		
 	}
 	
-
-	class Task extends AsyncTask<Void, Void, Void>
-	{
-		ProgressDialog pd;
-		@Override
-		protected Void doInBackground(Void... params) {
-			Log.e("SAFE PHOTO", "Dobackgroud");
-			APIPhotoBookConnection.getInstance("tp=9&", photoUrl, getActivity());
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			pd.dismiss();
-			super.onPostExecute(result);
-		}
-
-		@Override
-		protected void onPreExecute() {
-			pd = new ProgressDialog(getActivity());
-			pd.setCancelable(true);
-			pd.setMessage("Esta Subiendo");
-			pd.show();
-			super.onPreExecute();
-		}
-		
-	}*/
 	private void sendPhoto(Bitmap bitmap) throws Exception {
 		new UploadTask().execute(bitmap);
 	}
 
 	private class UploadTask extends AsyncTask<Bitmap, Void, Void> {
 		
+		ProgressDialog pd;
+		
 		protected Void doInBackground(Bitmap... bitmaps) {
 			if (bitmaps[0] == null)
 				return null;
-		//	setProgress(0);
+		
 			
 			Bitmap bitmap = bitmaps[0];
 			ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -213,31 +156,51 @@ public class PhotoBoothFragment extends Fragment {
 
 			DefaultHttpClient httpclient = new DefaultHttpClient();
 			try {
-				HttpPost httppost = new HttpPost(
-						"http://sca.siie.co/api"); // server
+				HttpPost httppost = new HttpPost(apiURL + "tp=9&" + apiKey); // server
 
 				org.sca.sca.controllers.MultipartEntity reqEntity = new org.sca.sca.controllers.MultipartEntity();
-				reqEntity.addPart("photo",
-						System.currentTimeMillis() + ".jpg", in);
-				reqEntity.addPart("_token_a", "adafadfasdfasssdfasdff");
-				reqEntity.addPart("_token_b", "adddddas44fffsdfasdfasdff");
-				reqEntity.addPart("tp", "9");
+				
+				reqEntity.addPart("_token_a", Token.getTokenInitial(getActivity()).getToken_a());
+				reqEntity.addPart("_token_b", Token.getTokenInitial(getActivity()).getToken_b());
+				reqEntity.addPart("_session", Token.getTokenInitial(getActivity()).getSession());
+		
 				reqEntity.addPart("apikey", "2177868a8da78fc325996838ab73cec6f9d3eaa0-71100");
 				reqEntity.addPart("loc", "7.5324235 -45.234232");
 				reqEntity.addPart("id_frame_event", "3");
-				
+				reqEntity.addPart("photo", System.currentTimeMillis() + ".jpg", in);
 			
 				
 				httppost.setEntity(reqEntity);
 
-				Log.i(TAG, "request " + httppost.getRequestLine());
+				Log.i(TAG, "request " + httppost.getRequestLine() +" << "+httppost.getAllHeaders());
 				HttpResponse response = null;
 				try {
 					response = httpclient.execute(httppost);
+
+					HttpEntity entity= response.getEntity();
+					if(entity!=null){
+						
+						String s = EntityUtils.toString(entity).toString();
+						JSONObject json = new JSONObject(s);
+						
+						if(json.has("file_upload"))
+						{
+							JSONObject json1 = json.getJSONObject("file_upload");
+							if(json1.has("t03"))
+							{
+								urlRemota = json1.getString("t03");
+								Log.e("SAFE-APILOGIN", json1.getString("t03"));
+							}
+						}
+						Log.e("SAFE-APILOGIN", json.toString());
+					}
 				} catch (ClientProtocolException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -279,12 +242,58 @@ public class PhotoBoothFragment extends Fragment {
 		}
 		
 		@Override
+		protected void onPreExecute() {
+			pd = new ProgressDialog(getActivity());
+			pd.setMessage("Cargando");
+			pd.show();
+			super.onPreExecute();
+		}
+		
+		@Override
 		protected void onPostExecute(Void result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
-			//Toast.makeText(this,"Uploaded", Toast.LENGTH_LONG).show();
-			Log.i(TAG, "uploaded");
+			new Download().execute();	
+			pd.dismiss();
 		}
+	}
+	
+	class Download extends AsyncTask<Void, Void, Void>{
+		Bitmap mIcon_val;
+		
+		
+		@Override
+		protected void onPreExecute() {
+			
+			super.onPreExecute();
+		}
+		
+		@Override
+		protected Void doInBackground(Void... params) {
+			URL newurl;
+			try {
+				newurl = new URL("http://sca-events.s3.amazonaws.com"+urlRemota);
+				mIcon_val = BitmapFactory.decodeStream(newurl.openConnection() .getInputStream());
+				
+				Log.i(TAG, "uploaded");
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			
+			super.onPostExecute(result);
+			mImageTaked.setImageBitmap(mIcon_val);
+			
+		}
+		
 	}
 
 	@Override
@@ -361,6 +370,26 @@ public class PhotoBoothFragment extends Fragment {
 	    return image;
 	}
 	
+	private void setPicGallery(Uri curUri)
+	{
+		
+		Uri currImageURI = curUri;
+        if(currImageURI != null)
+        {
+        	try {
+				Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), currImageURI);
+				mImageTaked.setImageBitmap(bitmap);
+				new UploadTask().execute(bitmap);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+	}
+	
 	private void setPic() {
 		// Get the dimensions of the View
 	    int targetW = mImageTaked.getWidth();
@@ -391,7 +420,7 @@ public class PhotoBoothFragment extends Fragment {
 	    if (rotatedBMP != bitmap)
 	    	bitmap.recycle();
 	    
-	    mImageTaked.setImageBitmap(rotatedBMP);
+	    //mImageTaked.setImageBitmap(rotatedBMP);
 	    
 	    try {
 			sendPhoto(rotatedBMP);
