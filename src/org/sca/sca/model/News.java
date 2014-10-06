@@ -114,7 +114,7 @@ public class News {
 	}
 
 	public String getImage() {
-		return image;
+		return ActivitiesModel.IMAGE_URL+image;
 	}
 
 	public void setImage(String image) {

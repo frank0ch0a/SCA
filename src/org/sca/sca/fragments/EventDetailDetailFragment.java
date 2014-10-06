@@ -47,7 +47,7 @@ public class EventDetailDetailFragment extends Fragment {
 		
 		
 		((TextView) rootView.findViewById(R.id.textViewDescripcion))
-				.setText("Descripción: " + model.getmDesc_activity());
+				.setText("Descripci—n: " + model.getmDesc_activity());
 		((TextView) rootView.findViewById(R.id.textViewDescripcion)).setTypeface(tfLight);
 		
 		((TextView) rootView.findViewById(R.id.textViewFecha))

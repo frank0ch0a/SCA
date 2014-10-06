@@ -102,7 +102,7 @@ public class NewsFragment extends Fragment {
 			    holder.title.setText(currentNews.getTitle_news());
 			    holder.content_news.setText(currentNews.getContent_news());
 			    if(currentNews.getImg().get(0)!= null)
-			    	Log.e("SAFE", currentNews.getImg().get(0));
+			    	Log.e("SAFE -->", currentNews.getImage());
 			    	new ImageL(currentNews.getImage(), holder.image, getContext());
 				return newsRow;
 				

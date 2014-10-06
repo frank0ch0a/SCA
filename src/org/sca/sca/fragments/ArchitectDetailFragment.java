@@ -105,7 +105,7 @@ public class ArchitectDetailFragment extends Fragment {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pd.setMessage("Obteniendo información. Por favor espere.");
+			pd.setMessage("Obteniendo informaci˜n. Por favor espere.");
 			pd.setCancelable(false);
 			pd.show();
 		}
@@ -138,6 +138,7 @@ public class ArchitectDetailFragment extends Fragment {
 						LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(
 								LayoutParams.MATCH_PARENT,
 								LayoutParams.MATCH_PARENT, 1f);
+						layout.leftMargin= 50;
 						trabajo.setLayoutParams(layout);
 						mImagenes.addView(trabajo);
 						Picasso.with(mActivity)

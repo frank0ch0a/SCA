@@ -8,6 +8,8 @@ import org.sca.sca.model.ActivitiesModel;
 import org.sca.sca.model.Architect;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,7 +69,12 @@ public class RegionArchitectAdapter extends BaseAdapter {
 
 			viewHolder = (ViewHolderItem) convertView.getTag();
 		}
-
+		
+		if(position%2 == 0)
+		{
+			convertView.setBackgroundColor(Color.WHITE);
+		}
+		viewHolder.date.setText("+ Informaci—n");
 		Architect objectItem = architects.get(position);
 
 		if (objectItem != null) {
