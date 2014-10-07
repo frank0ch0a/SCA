@@ -22,7 +22,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.sca.sca.MainActivity;
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 import org.sca.sca.controllers.CameraActivity;
 import org.sca.sca.controllers.GalleryActivity;
 import org.sca.sca.model.APIPhotoBookConnection;

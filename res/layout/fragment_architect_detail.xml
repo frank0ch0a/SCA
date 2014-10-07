@@ -3,14 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res/org.sca.sca"
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
-<<<<<<< Updated upstream
     android:layout_height="match_parent"
     android:background="#e2e2e2"
     android:orientation="vertical" >
-=======
-    android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res/com.bienal2014.app"
-    android:background="#e2e2e2">
->>>>>>> Stashed changes
 
     <ScrollView
         android:layout_width="match_parent"

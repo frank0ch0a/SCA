@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 
 public class FindPeopleFragment extends Fragment {
 	

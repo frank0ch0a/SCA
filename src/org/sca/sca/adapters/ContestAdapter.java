@@ -2,7 +2,7 @@ package org.sca.sca.adapters;
 
 import java.util.ArrayList;
 
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 import org.sca.sca.model.ContestModel;
 
 import android.content.Context;

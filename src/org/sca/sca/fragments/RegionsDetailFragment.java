@@ -2,7 +2,7 @@ package org.sca.sca.fragments;
 
 import java.util.List;
 
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 import org.sca.sca.adapters.RegionArchitectAdapter;
 import org.sca.sca.fragments.RegionListFragment.RegionListAdapter;
 import org.sca.sca.model.RegionModel;

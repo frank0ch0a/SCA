@@ -1,6 +1,6 @@
 package org.sca.sca.fragments;
 
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 import org.sca.sca.model.ContestModel;
 
 import com.squareup.picasso.Picasso;

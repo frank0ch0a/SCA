@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 
 import android.app.ProgressDialog;
 import android.content.Context;

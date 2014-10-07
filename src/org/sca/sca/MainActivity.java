@@ -2,7 +2,7 @@ package org.sca.sca;
 
 import java.util.ArrayList;
 
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 import org.sca.sca.adapters.NavDrawerListAdapter;
 import org.sca.sca.controllers.CameraActivity;
 import org.sca.sca.controllers.PhotoBoothActivity;

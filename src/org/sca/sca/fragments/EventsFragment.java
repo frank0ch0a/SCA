@@ -3,7 +3,7 @@ package org.sca.sca.fragments;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 import org.sca.sca.controllers.EventDetailActivity;
 import org.sca.sca.util.ImageL;
 import org.sca.sca.util.Network;

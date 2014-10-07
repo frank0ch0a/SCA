@@ -1,6 +1,6 @@
 package org.sca.sca.controllers;
 
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 import org.sca.sca.fragments.EventDetailFragment;
 
 import android.app.Fragment;

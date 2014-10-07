@@ -4,7 +4,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
 
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

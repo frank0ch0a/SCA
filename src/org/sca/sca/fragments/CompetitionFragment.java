@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.bienal2014.app.R;
+import org.sca.sca.R;
 import org.sca.sca.adapters.ContestAdapter;
 import org.sca.sca.fragments.EventsFragment.Task;
 import org.sca.sca.model.ContestModel;

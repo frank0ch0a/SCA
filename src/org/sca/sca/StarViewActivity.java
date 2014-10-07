@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import com.bienal2014.app.R;
 
 public class StarViewActivity extends Activity {
 
