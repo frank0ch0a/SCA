@@ -1,6 +1,6 @@
 package org.sca.sca.controllers;
 
-import org.sca.sca.R;
+import com.bienal2014.app.R;
 import org.sca.sca.fragments.CameraFragment;
 import org.sca.sca.fragments.GalleryFragment;
 

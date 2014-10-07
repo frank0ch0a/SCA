@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.sca.sca.R;
+import com.bienal2014.app.R;
 import org.sca.sca.util.Network;
 
 import android.annotation.SuppressLint;

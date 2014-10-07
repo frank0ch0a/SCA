@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import org.sca.sca.R;
+import com.bienal2014.app.R;
 
 public class PagesFragment extends Fragment {
 	

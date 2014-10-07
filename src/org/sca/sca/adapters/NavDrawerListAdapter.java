@@ -1,6 +1,6 @@
 package org.sca.sca.adapters;
 
-import org.sca.sca.R;
+import com.bienal2014.app.R;
 import org.sca.sca.model.NavDrawerItem;
 
 import java.util.ArrayList;

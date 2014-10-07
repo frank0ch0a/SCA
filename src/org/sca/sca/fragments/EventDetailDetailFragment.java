@@ -1,6 +1,6 @@
 package org.sca.sca.fragments;
 
-import org.sca.sca.R;
+import com.bienal2014.app.R;
 import org.sca.sca.model.ActivitiesModel;
 import org.sca.sca.model.ContestModel;
 

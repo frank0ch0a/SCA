@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.bienal2014.app.R;
 
 public class RegisterActivity extends Activity {
 

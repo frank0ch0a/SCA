@@ -6,7 +6,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.sca.sca.R;
+import com.bienal2014.app.R;
 import org.sca.sca.model.ApiRegionConnection;
 import org.sca.sca.model.Architect;
 import org.sca.sca.model.RegionModel;
