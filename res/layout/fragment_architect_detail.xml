@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/org.sca.sca"
+    xmlns:app="http://schemas.android.com/apk/res/com.bienal2014.app"
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,15 +25,15 @@
                 <ImageView
                     android:id="@+id/ivPhoto"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:scaleType="fitXY"
                     android:src="@drawable/bg_login" />
 
                 <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/imageViewArchitect"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     app:border="true"

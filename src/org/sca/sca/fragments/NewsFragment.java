@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.sca.sca.R;
+import com.bienal2014.app.R;
 import org.sca.sca.model.ApiNewsConnection;
 import org.sca.sca.model.News;
 import org.sca.sca.util.ImageL;

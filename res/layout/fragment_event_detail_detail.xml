@@ -13,13 +13,28 @@
             android:layout_below="@+id/imageView"
             android:layout_centerHorizontal="true"
             android:orientation="vertical" >
+			<RelativeLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent" >
 
-            <ImageView
+				<ImageView
+				    android:id="@+id/imageViewEventBg"
+				    android:layout_width="match_parent"
+				    android:layout_height="150dp"
+				    android:scaleType="fitXY"
+				    android:src="@drawable/bg_cronograma" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/bg_contest"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/bg_cronograma" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_cronograma"
+                />
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textViewTitleContest"
@@ -39,12 +54,29 @@
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
+                android:id="@+id/textViewLugar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/textViewCiudad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
                 android:id="@+id/textViewFecha"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:text="Small Text"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
+
         </LinearLayout>
     </ScrollView>
 

@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package org.sca.sca;
+package com.bienal2014.app;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

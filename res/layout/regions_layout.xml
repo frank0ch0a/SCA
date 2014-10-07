@@ -11,7 +11,7 @@
         android:src="@drawable/regionplaceholder" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageViewEventBg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/regionplaceholder"

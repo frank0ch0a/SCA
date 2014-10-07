@@ -1,6 +1,6 @@
 package org.sca.sca.fragments;
 
-import org.sca.sca.R;
+import com.bienal2014.app.R;
 import org.sca.sca.model.ActivitiesModel;
 import org.sca.sca.model.ContestModel;
 
@@ -45,9 +45,15 @@ public class EventDetailDetailFragment extends Fragment {
 				.setText(model.getmTitle_activity());
 		((TextView) rootView.findViewById(R.id.textViewTitleContest)).setTypeface(tf);
 		
+		((TextView)rootView.findViewById(R.id.textViewLugar)).setText("Lugar: " + model.getLocation_activity());
 		
+		((TextView)rootView.findViewById(R.id.textViewLugar)).setTypeface(tfLight);
 		((TextView) rootView.findViewById(R.id.textViewDescripcion))
+		
 				.setText("Descripci—n: " + model.getmDesc_activity());
+		((TextView)rootView.findViewById(R.id.textViewCiudad)).setText("Ciudad: Bucaramanga");
+		((TextView)rootView.findViewById(R.id.textViewCiudad)).setTypeface(tfLight);
+		
 		((TextView) rootView.findViewById(R.id.textViewDescripcion)).setTypeface(tfLight);
 		
 		((TextView) rootView.findViewById(R.id.textViewFecha))

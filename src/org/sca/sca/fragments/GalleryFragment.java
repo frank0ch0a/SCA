@@ -1,6 +1,6 @@
 package org.sca.sca.fragments;
 
-import org.sca.sca.R;
+import com.bienal2014.app.R;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -26,7 +26,7 @@ public class GalleryFragment extends Fragment {
 		
 		View v =inflater.inflate(R.layout.fragment_gallery, container,false);
 		mImageGallery =(ImageView)v.findViewById(R.id.imageGallery);
-		Button mLoadImageBtn =(Button)v.findViewById(R.id.galleryButton);
+	/*	Button mLoadImageBtn =(Button)v.findViewById(R.id.galleryButton);
 		mLoadImageBtn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -41,7 +41,7 @@ public class GalleryFragment extends Fragment {
 	               
 				
 			}
-		});
+		});*/
 		
 		
 		return v;

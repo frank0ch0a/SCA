@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package org.sca.sca;
+package com.bienal2014.app;
 
 public final class R {
     public static final class array {
@@ -137,37 +137,37 @@ containing a value of this type.
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0a0000;
-        public static final int LinearLayout2=0x7f0a0036;
+        public static final int LinearLayout2=0x7f0a0039;
         public static final int LinearLayoutImagenes=0x7f0a0026;
-        public static final int RelativeLayout1=0x7f0a0049;
-        public static final int action_settings=0x7f0a0054;
-        public static final int address_textView=0x7f0a004f;
+        public static final int RelativeLayout1=0x7f0a004c;
+        public static final int action_settings=0x7f0a0056;
+        public static final int address_textView=0x7f0a0052;
         public static final int bg_contest=0x7f0a002b;
-        public static final int bg_photobooth=0x7f0a003d;
-        public static final int btnCloseSession=0x7f0a0041;
-        public static final int btnCronograma=0x7f0a0038;
+        public static final int bg_photobooth=0x7f0a0040;
+        public static final int btnCloseSession=0x7f0a0044;
+        public static final int btnCronograma=0x7f0a003b;
         public static final int btnLogin=0x7f0a0015;
         public static final int btnLoginLogin=0x7f0a0006;
         public static final int btnRegister=0x7f0a0013;
         public static final int btnTakePhoto=0x7f0a000b;
         public static final int button2=0x7f0a000c;
-        public static final int buttonLoadPicture=0x7f0a003b;
+        public static final int buttonLoadPicture=0x7f0a003e;
         public static final int buttonVer=0x7f0a002f;
-        public static final int cameraButton=0x7f0a003f;
+        public static final int cameraButton=0x7f0a0042;
         public static final int camera_progressContainer=0x7f0a0029;
         public static final int camera_surfaceView=0x7f0a0027;
         public static final int camera_takeButton=0x7f0a0028;
         public static final int circle_image=0x7f0a0016;
-        public static final int city_textView=0x7f0a004d;
+        public static final int city_textView=0x7f0a0050;
         public static final int counter=0x7f0a001c;
         public static final int date=0x7f0a0018;
         public static final int day1Button=0x7f0a0033;
         public static final int day2Button=0x7f0a0034;
         public static final int description=0x7f0a0017;
         public static final int drawer_layout=0x7f0a0008;
-        public static final int editText1=0x7f0a0042;
-        public static final int editText2=0x7f0a0043;
-        public static final int editText3=0x7f0a0044;
+        public static final int editText1=0x7f0a0045;
+        public static final int editText2=0x7f0a0046;
+        public static final int editText3=0x7f0a0047;
         public static final int editTextEmail=0x7f0a0012;
         public static final int editTextLastName=0x7f0a0010;
         public static final int editTextLoginPasswd=0x7f0a0004;
@@ -175,52 +175,54 @@ containing a value of this type.
         public static final int editTextName=0x7f0a000f;
         public static final int editTextPassword=0x7f0a0011;
         public static final int frame_container=0x7f0a0009;
-        public static final int galleryButton=0x7f0a0040;
+        public static final int galleryButton=0x7f0a0043;
         public static final int horizontalScrollView1=0x7f0a0025;
         public static final int icon=0x7f0a001a;
-        public static final int imageBigEvents=0x7f0a0035;
-        public static final int imageGallery=0x7f0a003a;
-        public static final int imageTaked=0x7f0a003e;
+        public static final int imageBigEvents=0x7f0a0038;
+        public static final int imageGallery=0x7f0a003d;
+        public static final int imageTaked=0x7f0a0041;
         public static final int imageView=0x7f0a0020;
-        public static final int imageView1=0x7f0a0051;
         public static final int imageView2=0x7f0a0002;
         public static final int imageViewArchitect=0x7f0a0021;
+        public static final int imageViewEventBg=0x7f0a0035;
         public static final int imageViewImageActivity=0x7f0a001d;
         public static final int imageViewNews=0x7f0a0030;
         public static final int ivPhoto=0x7f0a0001;
         public static final int linearLayoutButtons=0x7f0a0032;
         public static final int listView=0x7f0a002a;
         public static final int listViewDays=0x7f0a0031;
-        public static final int listViewNews=0x7f0a003c;
+        public static final int listViewNews=0x7f0a003f;
         public static final int list_slidermenu=0x7f0a000a;
-        public static final int president_region_textView=0x7f0a004e;
+        public static final int president_region_textView=0x7f0a0051;
         public static final int progressBar1=0x7f0a0019;
-        public static final int regionplaceholder=0x7f0a0050;
+        public static final int regionplaceholder=0x7f0a0053;
         public static final int regions_list=0x7f0a000d;
-        public static final int regions_list_viewArchitects=0x7f0a004c;
-        public static final int sca_description=0x7f0a0048;
-        public static final int sca_title=0x7f0a0047;
-        public static final int sca_title_scroll=0x7f0a0046;
+        public static final int regions_list_viewArchitects=0x7f0a004f;
+        public static final int sca_description=0x7f0a004b;
+        public static final int sca_title=0x7f0a004a;
+        public static final int sca_title_scroll=0x7f0a0049;
         public static final int scrollView1=0x7f0a000e;
         public static final int textViewBio=0x7f0a0024;
         public static final int textViewCity=0x7f0a0023;
+        public static final int textViewCiudad=0x7f0a0037;
         public static final int textViewDescripcion=0x7f0a002d;
         public static final int textViewFecha=0x7f0a002e;
         public static final int textViewHour=0x7f0a001f;
         public static final int textViewLoginRegister=0x7f0a0007;
         public static final int textViewLoginRememberPass=0x7f0a0005;
+        public static final int textViewLugar=0x7f0a0036;
         public static final int textViewName=0x7f0a0022;
-        public static final int textViewNews=0x7f0a004b;
+        public static final int textViewNews=0x7f0a004e;
         public static final int textViewSesion=0x7f0a0014;
         public static final int textViewTitle=0x7f0a001e;
         public static final int textViewTitleContest=0x7f0a002c;
-        public static final int textViewTitleNews=0x7f0a004a;
+        public static final int textViewTitleNews=0x7f0a004d;
         public static final int title=0x7f0a001b;
-        public static final int title_reg_imageView=0x7f0a0052;
-        public static final int title_reg_textView=0x7f0a0053;
-        public static final int txtDescription=0x7f0a0037;
-        public static final int txtLabel=0x7f0a0039;
-        public static final int youtubeplayer=0x7f0a0045;
+        public static final int title_reg_imageView=0x7f0a0054;
+        public static final int title_reg_textView=0x7f0a0055;
+        public static final int txtDescription=0x7f0a003a;
+        public static final int txtLabel=0x7f0a003c;
+        public static final int youtubeplayer=0x7f0a0048;
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
@@ -313,10 +315,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CircularImageView_border org.sca.sca:border}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircularImageView_border_color org.sca.sca:border_color}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircularImageView_border_width org.sca.sca:border_width}</code></td><td></td></tr>
-           <tr><td><code>{@link #CircularImageView_shadow org.sca.sca:shadow}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircularImageView_border com.bienal2014.app:border}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircularImageView_border_color com.bienal2014.app:border_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircularImageView_border_width com.bienal2014.app:border_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #CircularImageView_shadow com.bienal2014.app:shadow}</code></td><td></td></tr>
            </table>
            @see #CircularImageView_border
            @see #CircularImageView_border_color
@@ -327,7 +329,7 @@ containing a value of this type.
             0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003
         };
         /**
-          <p>This symbol is the offset where the {@link org.sca.sca.R.attr#border}
+          <p>This symbol is the offset where the {@link com.bienal2014.app.R.attr#border}
           attribute's value can be found in the {@link #CircularImageView} array.
 
 
@@ -337,11 +339,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name org.sca.sca:border
+          @attr name com.bienal2014.app:border
         */
         public static final int CircularImageView_border = 0;
         /**
-          <p>This symbol is the offset where the {@link org.sca.sca.R.attr#border_color}
+          <p>This symbol is the offset where the {@link com.bienal2014.app.R.attr#border_color}
           attribute's value can be found in the {@link #CircularImageView} array.
 
 
@@ -352,11 +354,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name org.sca.sca:border_color
+          @attr name com.bienal2014.app:border_color
         */
         public static final int CircularImageView_border_color = 2;
         /**
-          <p>This symbol is the offset where the {@link org.sca.sca.R.attr#border_width}
+          <p>This symbol is the offset where the {@link com.bienal2014.app.R.attr#border_width}
           attribute's value can be found in the {@link #CircularImageView} array.
 
 
@@ -368,11 +370,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name org.sca.sca:border_width
+          @attr name com.bienal2014.app:border_width
         */
         public static final int CircularImageView_border_width = 1;
         /**
-          <p>This symbol is the offset where the {@link org.sca.sca.R.attr#shadow}
+          <p>This symbol is the offset where the {@link com.bienal2014.app.R.attr#shadow}
           attribute's value can be found in the {@link #CircularImageView} array.
 
 
@@ -382,7 +384,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name org.sca.sca:shadow
+          @attr name com.bienal2014.app:shadow
         */
         public static final int CircularImageView_shadow = 3;
         /** Attributes that can be used with a Theme.
@@ -391,7 +393,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #Theme_circularImageViewStyle org.sca.sca:circularImageViewStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_circularImageViewStyle com.bienal2014.app:circularImageViewStyle}</code></td><td></td></tr>
            </table>
            @see #Theme_circularImageViewStyle
          */
@@ -399,13 +401,13 @@ containing a value of this type.
             0x7f010004
         };
         /**
-          <p>This symbol is the offset where the {@link org.sca.sca.R.attr#circularImageViewStyle}
+          <p>This symbol is the offset where the {@link com.bienal2014.app.R.attr#circularImageViewStyle}
           attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name org.sca.sca:circularImageViewStyle
+          @attr name com.bienal2014.app:circularImageViewStyle
         */
         public static final int Theme_circularImageViewStyle = 0;
     };
