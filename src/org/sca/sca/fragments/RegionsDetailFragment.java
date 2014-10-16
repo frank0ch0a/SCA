@@ -1,18 +1,24 @@
 package org.sca.sca.fragments;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.bienal2014.app.R;
 import org.sca.sca.adapters.RegionArchitectAdapter;
+import org.sca.sca.controllers.ArchitectDetailActivity;
 import org.sca.sca.fragments.RegionListFragment.RegionListAdapter;
+import org.sca.sca.model.Architect;
 import org.sca.sca.model.RegionModel;
 
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,13 +73,29 @@ public class RegionsDetailFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				FragmentManager fragmentManager = getFragmentManager();
+				
+			
+				
+				
+				/*FragmentManager fragmentManager = getFragmentManager();
 				fragmentManager
 						.beginTransaction()
 						.replace(
 								R.id.frame_container,
 								new ArchitectDetailFragment(region.getPersons()
-										.get(arg2))).commit();
+										.get(arg2))).commit();*/
+				Architect architect = (Architect)region.getPersons().get(arg2);
+				
+				
+				//Pasamos el modelo a la activity
+				Bundle bundle = new Bundle();
+				bundle.putSerializable("architect", (Serializable) architect);
+				Intent i = new Intent(getActivity(),ArchitectDetailActivity.class);
+				i.putExtras(bundle);
+				startActivity(i);
+				
+				
+				
 			}
 		});
 

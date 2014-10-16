@@ -1,11 +1,13 @@
 package org.sca.sca.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class RegionModel {
+public class RegionModel implements Serializable{
+	private static final long serialVersionUID = 1234567;
 	private static final String JSON_PHOTO ="photo";
 
 	private String id_reg;

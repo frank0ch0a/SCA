@@ -207,7 +207,7 @@ public class MainActivity extends YouTubeBaseActivity {
 		switch (position) {
 		case 0:
 			Log.e("Safe", "entro a la portada");
-			fragment = new HomeFragment();
+			fragment = new NewsFragment();
 			break;
 			
 		case 1:
@@ -232,9 +232,11 @@ public class MainActivity extends YouTubeBaseActivity {
 			
 			
 		case 5:
-			//fragment = new PhotoBoothFragment();
+			fragment = new PhotoBoothFragment();
+			
+			/*
 			Intent i = new Intent(getApplicationContext(), PhotoBoothActivity.class);
-			startActivity(i);
+			startActivity(i);*/
 			break;
 			
 
@@ -292,4 +294,7 @@ public class MainActivity extends YouTubeBaseActivity {
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
 
+	@Override
+	public void onBackPressed() {
+	}
 }

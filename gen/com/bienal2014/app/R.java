@@ -134,13 +134,14 @@ containing a value of this type.
         public static final int red_button=0x7f020030;
         public static final int regional=0x7f020031;
         public static final int regionplaceholder=0x7f020032;
+        public static final int splash=0x7f020033;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0a0000;
         public static final int LinearLayout2=0x7f0a0039;
         public static final int LinearLayoutImagenes=0x7f0a0026;
         public static final int RelativeLayout1=0x7f0a004c;
-        public static final int action_settings=0x7f0a0056;
+        public static final int action_settings=0x7f0a0057;
         public static final int address_textView=0x7f0a0052;
         public static final int bg_contest=0x7f0a002b;
         public static final int bg_photobooth=0x7f0a0040;
@@ -187,6 +188,7 @@ containing a value of this type.
         public static final int imageViewEventBg=0x7f0a0035;
         public static final int imageViewImageActivity=0x7f0a001d;
         public static final int imageViewNews=0x7f0a0030;
+        public static final int imgLogo=0x7f0a0056;
         public static final int ivPhoto=0x7f0a0001;
         public static final int linearLayoutButtons=0x7f0a0032;
         public static final int listView=0x7f0a002a;
@@ -257,6 +259,7 @@ containing a value of this type.
         public static final int region_detail=0x7f03001d;
         public static final int regions_layout=0x7f03001e;
         public static final int regionslayout=0x7f03001f;
+        public static final int splash=0x7f030020;
     }
     public static final class menu {
         public static final int main=0x7f090000;

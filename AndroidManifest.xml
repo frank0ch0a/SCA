@@ -22,15 +22,24 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
         <activity
-            android:name="org.sca.sca.StarViewActivity"
+            android:name="org.sca.sca.controllers.SplashActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar"
+            android:screenOrientation="portrait"
+             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+              </activity>
+        <activity
+            android:name="org.sca.sca.StarViewActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            
         </activity>
         <activity
             android:name="org.sca.sca.MainActivity"
@@ -65,6 +74,14 @@
         <activity
             android:name="org.sca.sca.PhotoBookActivity"
             android:label="@string/title_activity_photo_book" >
+        </activity>
+         <activity
+            android:name="org.sca.sca.controllers.ArchitectDetailActivity"
+            android:label="@string/app_name" >
+        </activity>
+         <activity
+            android:name="org.sca.sca.controllers.RegionDetailActivity"
+            android:label="@string/app_name" >
         </activity>
     </application>
 

@@ -1,6 +1,10 @@
 package org.sca.sca.model;
 
-public class Architect {
+import java.io.Serializable;
+
+public class Architect implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	private String id_person;
 	private String name_person;

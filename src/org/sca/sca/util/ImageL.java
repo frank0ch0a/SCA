@@ -29,11 +29,11 @@ public class ImageL {
 	public ImageL(String url, ImageView view, Context context)
 	{
 		this.image = view;
-		this.url = "http://sca-events.s3.amazonaws.com"+url;
+		this.url = url;
 		this.context= context;
 		
 		String []names= url.split("/");
-		Log.e("SAFE", names[names.length-1]);
+		Log.e("SAFE-IMAGEL", names[names.length-1]);
 		this.name= names[names.length-1];
 		new loadImage().execute(this.url);
 	}

@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.bienal2014.app.R;
+
+import org.sca.sca.controllers.RegionDetailActivity;
 import org.sca.sca.model.ApiRegionConnection;
 import org.sca.sca.model.Architect;
 import org.sca.sca.model.RegionModel;
@@ -21,6 +23,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -165,11 +168,20 @@ public class RegionListFragment extends Fragment {
 
 			RegionModel temp = data(jsonO);
 			if (temp != null) {
+				
+				Bundle bundle = new Bundle();
+				bundle.putSerializable("region", temp);
+				Intent i = new Intent(getActivity(), RegionDetailActivity.class);
+				i.putExtras(bundle);
+				startActivity(i);
+				
+				
+				/*
 				FragmentManager fragmentManager = getFragmentManager();
 				fragmentManager
 						.beginTransaction()
 						.replace(R.id.frame_container,
-								new RegionsDetailFragment(temp)).commit();
+								new RegionsDetailFragment(temp)).commit();*/
 			}
 
 		}
