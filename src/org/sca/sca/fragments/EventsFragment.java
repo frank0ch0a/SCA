@@ -4,12 +4,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.bienal2014.app.R;
+
+import org.sca.sca.LoginActivity;
 import org.sca.sca.controllers.EventDetailActivity;
 import org.sca.sca.util.ImageL;
 import org.sca.sca.util.Network;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -76,9 +81,12 @@ public class EventsFragment extends Fragment {
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
 			data(jsonO);
+			
 			if (pd != null && pd.isShowing()) {
 				pd.dismiss();
 			}
+	
+			
 		}
 
 		@Override
@@ -102,18 +110,29 @@ public class EventsFragment extends Fragment {
 
 		try {
 			JSONArray array = obj.getJSONArray("event");
+			if(array.length()==0)
+			{
+				Fragment fragment = new NoEventFragment();
+	        	FragmentManager fragmentManager = getFragmentManager();
+				fragmentManager.beginTransaction()
+						.replace(R.id.frame_container, fragment).commit();
+				
+			}
+			else{
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject json = array.getJSONObject(i);
 				JSONObject jimageBig = json.getJSONObject("img");
 
-				urlImgBig = jimageBig.getString("big");
+				urlImgBig = jimageBig.getString("T03");
 				jdescription = json.getString("desc_event");
 			}
+			if (urlImgBig != null)
 			new ImageL("http://sca-events.s3.amazonaws.com" + urlImgBig,
 					imageBig, getActivity());
 			Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Dosis-Regular.otf");
 			description.setTypeface(tf);
 			description.setText(jdescription);
+			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

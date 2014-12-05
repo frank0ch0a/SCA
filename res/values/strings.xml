@@ -44,4 +44,8 @@ No sed sonet maiestatis elaboraret, ad erant perpetua partiendo eum. Cu qui quis
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_photo_book">PhotoBookActivity</string>
 
+    <string name="dialog_title">Información</string>
+    <string name="dialog_message">Su usuario o password es erroneo</string>
+    <string name="dialog_title_event_null">Información</string>
+    <string name="dialog_message_event_null">En este momento no hay eventos disponibles.</string>
 </resources>

@@ -9,7 +9,10 @@ import org.sca.sca.model.ApiLoginConnection;
 import org.sca.sca.util.Token;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -108,6 +111,7 @@ public class LoginActivity extends Activity {
 	class Task extends AsyncTask<Void, Void, Void>{
 		ProgressDialog pd1;
 		
+		
 		@Override
 		protected Void doInBackground(Void... params) {
 			Log.e("SAFE Asyn", etCorreo.getText().toString() +" Pass: "+ convertSha1(etPasswd.getText().toString()));
@@ -123,6 +127,20 @@ public class LoginActivity extends Activity {
 				Intent i = new Intent(getApplicationContext(), MainActivity.class);
 				startActivity(i);
 				finish();
+			}
+			else
+			{
+				new AlertDialog.Builder(LoginActivity.this)
+			    .setTitle(R.string.dialog_title)
+			    .setMessage(R.string.dialog_message)
+			    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+			        public void onClick(DialogInterface dialog, int which) { 
+			            // continue with delete
+			        }
+			     })
+			    .setIcon(android.R.drawable.ic_dialog_alert)
+			     .show();
+				
 			}
 			super.onPostExecute(result);
 		}
