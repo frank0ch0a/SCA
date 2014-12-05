@@ -128,12 +128,12 @@ public class ArchitectDetailFragment extends Fragment {
 		try {
 			JSONArray person = obj.getJSONArray("person");
 			JSONObject info = person.getJSONObject(0);
-			JSONArray work = info.getJSONArray("work");
-			for (int i = 0; i < work.length(); i++) {
-				JSONObject temp = work.getJSONObject(i);
-				if (temp.has("img")) {
-					JSONObject img = temp.getJSONObject("img");
-					if (img.has("big")) {
+			JSONObject work = info.getJSONObject("img");
+			for (int i = 0; i < 3; i++) {
+				//JSONObject temp = work.getJSONObject(i);
+				if (work.has("big")) {
+					//JSONObject img = temp.getJSONObject("img");
+					
 						ImageView trabajo = new ImageView(mActivity);
 						LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(
 								LayoutParams.MATCH_PARENT,
@@ -143,10 +143,10 @@ public class ArchitectDetailFragment extends Fragment {
 						mImagenes.addView(trabajo);
 						Picasso.with(mActivity)
 								.load(ActivitiesModel.IMAGE_URL
-										+ img.getString("big"))
+										+ work.getString("big"))
 								.placeholder(R.drawable.ic_launcher)
 								.into(trabajo);
-					}
+					
 				}
 			}
 		} catch (JSONException e) {

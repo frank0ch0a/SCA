@@ -34,12 +34,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 @SuppressLint("NewApi")
 public class MainActivity extends YouTubeBaseActivity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
+	private static long back_pressed;
 
 	// nav drawer title
 	private CharSequence mDrawerTitle;
@@ -296,5 +298,13 @@ public class MainActivity extends YouTubeBaseActivity {
 
 	@Override
 	public void onBackPressed() {
+		
+		 if (back_pressed + 2000 > System.currentTimeMillis()) 
+             super.onBackPressed();
+      else 
+           Toast.makeText(getBaseContext(), "Presione otra vez para salir!", Toast.LENGTH_SHORT).show();
+      back_pressed = System.currentTimeMillis();
+		
+		
 	}
 }
